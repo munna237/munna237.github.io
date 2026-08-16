@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammad Mehedi Hasan Munna — Medical image analysis &amp; self-supervised learning</title>
+<meta name="description" content="Computer science researcher working on label-efficient and self-supervised machine learning for medical image analysis, with a focus on accelerated MRI reconstruction for low-resource clinical settings.">
+<meta property="og:title" content="Mohammad Mehedi Hasan Munna">
+<meta property="og:description" content="Machine learning for medical image analysis — self-supervised MRI reconstruction for low-resource clinical settings.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --film:#e9ecf1;
+  --paper:#ffffff;
+  --ink:#10151f;
+  --slate:#58657a;
+  --rule:#c7ced9;
+  --phase:#b4185e;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gut:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--film);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+a:hover{color:var(--phase);border-bottom-color:var(--phase)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--phase);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.shell{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+@media(min-width:940px){
+  .shell{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:start}
+}
+
+/* ---------- left rail ---------- */
+.rail{padding:44px 0 28px}
+@media(min-width:940px){.rail{position:sticky;top:0;height:100vh;padding:64px 0 40px;display:flex;flex-direction:column}}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--phase);display:block;margin-bottom:18px;
+}
+.rail h1{
+  font-family:var(--display);
+  font-variation-settings:"wdth" 112,"wght" 760;
+  font-size:clamp(28px,3.1vw,36px);
+  line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;
+}
+.rail .role{font-size:14px;color:var(--slate);margin:0 0 26px;max-width:30ch}
+.nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+@media(min-width:940px){.nav{flex-direction:column;gap:2px;margin-bottom:auto}}
+.nav a{
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--slate);border:0;padding:3px 0;position:relative;
+}
+.nav a::before{content:"";position:absolute;left:-14px;top:50%;width:7px;height:1px;background:var(--phase);opacity:0;transition:opacity .18s}
+.nav a:hover,.nav a[aria-current="true"]{color:var(--ink)}
+@media(min-width:940px){.nav a[aria-current="true"]::before,.nav a:hover::before{opacity:1}}
+.contact-links{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:22px;border-top:1px solid var(--rule)}
+.contact-links a{font-size:13px;border:0;color:var(--slate)}
+.contact-links a:hover{color:var(--phase)}
+
+/* ---------- sections ---------- */
+main{padding-bottom:100px}
+section{padding:44px 0;border-top:1px solid var(--rule)}
+section:first-child{border-top:0;padding-top:clamp(32px,6vw,74px)}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--slate);margin:0 0 22px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+h2{
+  font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 700;
+  font-size:clamp(21px,2.3vw,26px);letter-spacing:-.01em;margin:0 0 18px;line-height:1.2;
+}
+h3{font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 660;font-size:17px;margin:0 0 3px;letter-spacing:-.005em}
+p{margin:0 0 16px;max-width:74ch}
+
+/* ---------- hero ---------- */
+.lede{
+  font-family:var(--display);font-variation-settings:"wdth" 96,"wght" 480;
+  font-size:clamp(20px,2.5vw,29px);line-height:1.34;letter-spacing:-.015em;
+  max-width:22ch;margin:0 0 10px;
+}
+.lede em{font-style:normal;color:var(--phase)}
+.sub{color:var(--slate);max-width:60ch;margin-bottom:34px}
+
+/* ---------- signature: k-space sampling mask ---------- */
+.kspace{margin:0;background:var(--paper);border:1px solid var(--rule);padding:22px 22px 14px}
+.kspace svg{display:block;width:100%;height:auto;clip-path:inset(0 50% 0 50%);animation:acquire 1.5s cubic-bezier(.22,.85,.25,1) .25s forwards}
+@keyframes acquire{to{clip-path:inset(0 0 0 0)}}
+.kspace figcaption{
+  font-family:var(--mono);font-size:11px;line-height:1.5;letter-spacing:.02em;color:var(--slate);
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);max-width:64ch;
+}
+.kspace figcaption b{color:var(--ink);font-weight:500}
+@media(prefers-reduced-motion:reduce){
+  .kspace svg{animation:none;clip-path:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- stats strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:30px}
+.strip div{background:var(--film);padding:16px 18px}
+.strip .n{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 720;font-size:26px;line-height:1;display:block}
+.strip .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);margin-top:7px;display:block}
+
+/* ---------- publications ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--rule);color:var(--slate);
+  padding:7px 13px;cursor:pointer;transition:.16s;
+}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--film)}
+.pubs{list-style:none;margin:0;padding:0}
+.pub{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:19px 0;border-top:1px solid var(--rule)}
+.pub:first-child{border-top:0;padding-top:0}
+.pub[hidden]{display:none}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--slate);padding-top:4px}
+.pub-title{font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 620;font-size:16.5px;line-height:1.4;margin:0 0 6px;letter-spacing:-.005em}
+.authors{font-size:13.5px;color:var(--slate);margin:0 0 7px;line-height:1.55}
+.authors b{color:var(--ink);font-weight:600}
+.meta{font-family:var(--mono);font-size:11.5px;color:var(--slate);margin:0;display:flex;flex-wrap:wrap;gap:5px 10px;align-items:baseline}
+.meta .venue{color:var(--ink)}
+.meta a{border-bottom-color:var(--rule);color:var(--slate)}
+.status{color:var(--phase)}
+.note{font-size:13.5px;color:var(--slate);margin-top:20px;font-style:italic}
+
+/* ---------- entries (experience / service) ---------- */
+.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:0}
+.when{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--slate);padding-top:4px}
+.where{font-size:13.5px;color:var(--slate);margin:0 0 9px}
+.entry ul{margin:0;padding-left:17px}
+.entry li{margin-bottom:5px;font-size:14.5px}
+@media(max-width:620px){
+  .entry,.pub{grid-template-columns:1fr;gap:7px}
+  .when,.tag{padding-top:0}
+}
+
+/* ---------- skills ---------- */
+.skills{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(min-width:700px){.skills{grid-template-columns:1fr 1fr}}
+.skills div{background:var(--film);padding:15px 18px}
+.skills dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--phase);margin-bottom:5px}
+.skills dd{margin:0;font-size:14.5px;line-height:1.55}
+
+/* ---------- contact ---------- */
+.contact-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.contact-grid a{
+  font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  border:1px solid var(--rule);padding:9px 15px;color:var(--ink);transition:.16s;
+}
+.contact-grid a:hover{background:var(--ink);color:var(--film);border-color:var(--ink)}
+footer{font-family:var(--mono);font-size:11px;color:var(--slate);padding:26px 0 0;border-top:1px solid var(--rule);margin-top:44px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="rail">
+    <span class="mark">Dhaka, Bangladesh</span>
+    <h1>Mohammad<br>Mehedi Hasan<br>Munna</h1>
+    <p class="role">Machine learning for medical image analysis — label-efficient and self-supervised methods.</p>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#service">Service</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="contact-links">
+      <a href="mailto:mohammadmehedi.munna@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ">Scholar</a>
+      <a href="https://orcid.org/0009-0000-0860-9337">ORCID</a>
+      <a href="https://www.linkedin.com/in/mohammad-mehedi-hasan-munna-719a03225/">LinkedIn</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="top">
+      <p class="lede">Reconstructing MRI from <em>less data</em> than the scanner is supposed to need.</p>
+      <p class="sub">Deep learning normally pays for accuracy with labelled data that clinics in Bangladesh do not have. My work asks how far self-supervised and label-efficient methods can close that gap — in MRI reconstruction, in histopathology, and in screening tools meant to run on ordinary hospital hardware.</p>
+
+      <figure class="kspace">
+        <svg viewBox="0 0 800 130" role="img" aria-label="Diagram of a variable-density k-space sampling mask: sampling lines packed densely at the centre and thinning towards the edges.">
+          <g stroke="#10151f" stroke-width="1.4" opacity=".42">
+            <path d="M12 14V116M44 14V116M76 14V116M108 14V116M140 14V116M172 14V116M192 14V116M212 14V116M232 14V116M252 14V116M272 14V116M292 14V116M304 14V116M316 14V116M328 14V116M340 14V116"/>
+            <path d="M788 14V116M756 14V116M724 14V116M692 14V116M660 14V116M628 14V116M608 14V116M588 14V116M568 14V116M548 14V116M528 14V116M508 14V116M496 14V116M484 14V116M472 14V116M460 14V116"/>
+          </g>
+          <g stroke="#b4185e" stroke-width="1.6">
+            <path d="M352 14V116M356 14V116M360 14V116M364 14V116M368 14V116M372 14V116M376 14V116M380 14V116M384 14V116M388 14V116M392 14V116M396 14V116M400 14V116M404 14V116M408 14V116M412 14V116M416 14V116M420 14V116M424 14V116M428 14V116M432 14V116M436 14V116M440 14V116M444 14V116M448 14V116"/>
+          </g>
+          <g fill="#58657a" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1">
+            <text x="0" y="129">high frequency</text>
+            <text x="400" y="129" text-anchor="middle" fill="#b4185e">k = 0</text>
+            <text x="800" y="129" text-anchor="end">high frequency</text>
+          </g>
+        </svg>
+        <figcaption><b>Variable-density undersampling.</b> Skip most of k-space, keep the low-frequency centre, and a scan that took ten minutes takes two. What you lose is the guarantee that the image is real — recovering it is the problem I work on.</figcaption>
+      </figure>
+
+      <div class="strip">
+        <div><span class="n">11</span><span class="l">Peer-reviewed papers</span></div>
+        <div><span class="n">7</span><span class="l">As first author</span></div>
+        <div><span class="n">6</span><span class="l">Under review</span></div>
+        <div><span class="n">2026</span><span class="l">BSc, East West University</span></div>
+      </div>
+    </section>
+
+    <section id="research">
+      <p class="eyebrow">Research</p>
+      <h2>What I work on</h2>
+      <p>My undergraduate thesis, <em>Self-Supervised Learning for Offline MRI Reconstruction</em>, trains reconstruction models without fully sampled ground truth — the setting that actually holds in hospitals where nobody has time to acquire reference scans. Around it sit related questions: how much image compression a diagnostic model can survive, how to squeeze a multi-task diagnostic pipeline onto a small device, and how to audit a model well enough that a clinician could reasonably trust it.</p>
+      <div class="skills" style="margin-top:22px">
+        <div><dt>Reconstruction</dt><dd>Self-supervised and offline MRI reconstruction from undersampled k-space.</dd></div>
+        <div><dt>Label efficiency</dt><dd>Contrastive and self-supervised pretraining where annotation budgets are small.</dd></div>
+        <div><dt>Clinical robustness</dt><dd>Compression thresholds, distribution shift, and failure auditing in diagnostic models.</dd></div>
+        <div><dt>Trustworthy AI</dt><dd>Explainable attention and error analysis for screening tools in low-resource settings.</dd></div>
+      </div>
+      <p style="margin-top:22px">Education: BSc in Computer Science and Engineering, East West University, Dhaka (Feb 2022 – Aug 2026). Coursework in artificial intelligence, machine learning, digital image processing, computer vision, data structures and algorithms, and statistics for data science.</p>
+    </section>
+
+    <section id="publications">
+      <p class="eyebrow">Publications</p>
+      <h2>Papers</h2>
+      <div class="filters" role="group" aria-label="Filter publications by type">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="journal" aria-pressed="false">Journal</button>
+        <button type="button" data-filter="review" aria-pressed="false">Under review</button>
+        <button type="button" data-filter="conf" aria-pressed="false">Conference</button>
+        <button type="button" data-filter="chapter" aria-pressed="false">Book chapter</button>
+      </div>
+
+      <ul class="pubs">
+        <li class="pub" data-type="journal">
+          <span class="tag">J1</span>
+          <div>
+            <p class="pub-title">A runtime safety copilot for AI-native O-RAN: predictive verification and fail-safe enforcement in near-RT RIC control loops</p>
+            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Kabir, A. H., Antu, N. H., &amp; Tulona, R. F.</p>
+            <p class="meta"><span class="venue">IEEE Access</span><span>2026</span><a href="https://doi.org/10.1109/ACCESS.2026.3686132">10.1109/ACCESS.2026.3686132</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-type="review">
+          <span class="tag">U1</span>
+          <div>
+            <p class="pub-title">Self-supervised learning for accelerated MRI: a critical review of paradigms, trustworthiness, and translational challenges</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Chowdhury Rafi, A. M., Sami, M. J. I., Sifat, K. M., Sultana, T., Ul Islam, R., Tulona, R. F., &amp; Kabir, A. H.</p>
+            <p class="meta"><span class="venue">Journal of Magnetic Resonance Imaging</span><span class="status">Under review</span><span>First and co-corresponding author</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="review">
+          <span class="tag">U2</span>
+          <div>
+            <p class="pub-title">Artificial intelligence for women's reproductive health: a scoping review of global diagnostic trends, methodological gaps, and a translational research agenda for low-resource settings</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Islam, T., Faruk, O., Tulona, R. F., Sultana, A., Saima, F., Kabir, A. H., Sultana, T., &amp; Ul Islam, R.</p>
+            <p class="meta"><span class="venue">PLOS ONE</span><span class="status">Major revision under review</span><span>First and corresponding author</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="review">
+          <span class="tag">U3</span>
+          <div>
+            <p class="pub-title">JPEG2000 compression thresholds for deep learning-based cancer histopathology classification: a multi-dataset, multi-tissue evaluation with compression-aware training</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Kabir, A. H., Tulona, R. F., Saha, S., Kabir, S. S., Habib, I., Dhrubo, V., &amp; Sultana, T.</p>
+            <p class="meta"><span class="venue">PLOS ONE</span><span class="status">Under review</span><span>First and corresponding author</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="review">
+          <span class="tag">U4</span>
+          <div>
+            <p class="pub-title">AGRI-KD: a lightweight multi-task framework for rice disease diagnosis with localization and severity quantification</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Tulona, R. F., &amp; Kabir, A. H.</p>
+            <p class="meta"><span class="venue">Smart Agricultural Technology</span><span class="status">Under review</span><span>First and corresponding author</span></p>
+          </div>
+        </li>
+
+        <li class="pub" data-type="chapter">
+          <span class="tag">B1</span>
+          <div>
+            <p class="pub-title">Explainable hybrid convolutional networks for accurate malaria diagnosis in blood smear images</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Aman Turzo, N., Saha, S., Islam, T., Safy, I. H., Saima, F., &amp; Nusrat, S.</p>
+            <p class="meta"><span class="venue">Data Science, AI and Applications (ICDSAIA 2025), CCIS vol. 2682, Springer</span><span>2025</span><a href="https://doi.org/10.1007/978-3-032-11352-8_4">10.1007/978-3-032-11352-8_4</a></p>
+          </div>
+        </li>
+
+        <li class="pub" data-type="conf">
+          <span class="tag">C1</span>
+          <div>
+            <p class="pub-title">AI-assisted PCOS screening from ultrasound using vision transformers and explainable attention</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Afrin Anamika, S., Sultana, A., Mia, M. S., Islam, T., Mahmud Bitto, P., Sultana, T., Rashid, M. R. A., Ul Islam, R., Reza, A. W., &amp; Ripon, S. H.</p>
+            <p class="meta"><span class="venue">5th ICECTE</span><span>2026</span><a href="https://doi.org/10.1109/ICECTE69292.2026.11429340">10.1109/ICECTE69292.2026.11429340</a></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C2</span>
+          <div>
+            <p class="pub-title">Deep learning for reliable healthcare: insights from chest X-ray prediction</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Kabir, S. S., Bari, S., Islam, T., Dhrubo, V., Kabir, A. H., &amp; Tulona, R. F.</p>
+            <p class="meta"><span class="venue">28th ICCIT</span><span>2025</span><span>Accepted, oral presentation</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C3</span>
+          <div>
+            <p class="pub-title">Contrastive representation learning for acute lymphoblastic leukemia: a SimCLR and EfficientNet-B0 approach</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Bari, S., Mia, M. S., Kabir, A. H., Tulona, R. F., &amp; Enan, I. I.</p>
+            <p class="meta"><span class="venue">SPICSCON, IEEE</span><span>2025</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C4</span>
+          <div>
+            <p class="pub-title">Automated diagnosis of acute lymphoblastic leukemia leveraging EfficientNet and fastai</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Habib, I., Turzo, N. A., Jahan, N., &amp; Nusrat, S.</p>
+            <p class="meta"><span class="venue">27th ICCIT, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/ICCIT64611.2024.11021950">10.1109/ICCIT64611.2024.11021950</a></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C5</span>
+          <div>
+            <p class="pub-title">A novel hybrid Xception-DenseNet121 model for acute lymphoblastic leukemia classification</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Habib, I., &amp; Aman, N.</p>
+            <p class="meta"><span class="venue">6th STI, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/STI64222.2024.10951150">10.1109/STI64222.2024.10951150</a></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C6</span>
+          <div>
+            <p class="pub-title">Leveraging hybrid deep learning for effective multiclass blood cancer detection</p>
+            <p class="authors">Habib, I., <b>Munna, M. M. H.</b>, &amp; Aman, N.</p>
+            <p class="meta"><span class="venue">ICRPSET, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/ICRPSET64863.2024.10955897">10.1109/ICRPSET64863.2024.10955897</a></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C7</span>
+          <div>
+            <p class="pub-title">A comparative survey of IoT platforms: architecture, security, and emerging trends toward distributed intelligence</p>
+            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Tulona, R. F., Antu, N. H., &amp; Kabir, A. H.</p>
+            <p class="meta"><span class="venue">8th ICHORA</span><span>2026</span><span>Accepted, oral presentation</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C8</span>
+          <div>
+            <p class="pub-title">Optimized bandwidth allocation in cellular networks using genetic algorithms and a historical stability index</p>
+            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Antu, N. H., Tulona, R. F., Kabir, A. H., &amp; Islam, A.</p>
+            <p class="meta"><span class="venue">ICNGN</span><span>2025</span><a href="https://doi.org/10.1109/ICNGN67480.2025.11413736">10.1109/ICNGN67480.2025.11413736</a></p>
+          </div>
+        </li>
+        <li class="pub" data-type="conf">
+          <span class="tag">C9</span>
+          <div>
+            <p class="pub-title">Deep learning in cybersecurity: a hybrid CNN framework for multi-source malware detection</p>
+            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Saha, S., Islam, T., Nusrat, S., &amp; Das, S. K.</p>
+            <p class="meta"><span class="venue">QPAIN, IEEE</span><span>2025</span><a href="https://doi.org/10.1109/QPAIN66474.2025.11171945">10.1109/QPAIN66474.2025.11171945</a></p>
+          </div>
+        </li>
+      </ul>
+      <p class="note">Two further co-authored manuscripts are under review at IEEE Access (IoT gateway architecture; embedded flood-risk sensing).</p>
+    </section>
+
+    <section id="experience">
+      <p class="eyebrow">Experience</p>
+      <h2>Where I have worked</h2>
+      <div class="entry">
+        <span class="when">Dec 2025 – May 2026</span>
+        <div>
+          <h3>Research Assistant (Intern)</h3>
+          <p class="where">Center for Computational &amp; Data Sciences (CCDS), Independent University Bangladesh</p>
+          <ul>
+            <li>Developed self-supervised computer vision methods for medical image segmentation under limited annotation budgets.</li>
+            <li>Built automated annotation pipelines for agricultural imaging datasets, including a tea leaf disease corpus.</li>
+            <li>Python, PyTorch, YOLOv8, OpenCV.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="when">Jan 2025 – Jun 2025</span>
+        <div>
+          <h3>Tech Course Analyst &amp; Coordinator (Intern)</h3>
+          <p class="where">ICT Olympiad Bangladesh, Dhaka</p>
+          <ul>
+            <li>Redesigned ICT curriculum content to align with national and international standards.</li>
+            <li>Surveyed emerging technology trends to inform course development.</li>
+            <li>Named Best Intern, Season 2 (2025).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <p class="eyebrow">Service &amp; leadership</p>
+      <h2>Beyond the lab</h2>
+      <div class="entry">
+        <span class="when">2025 – present</span>
+        <div>
+          <h3>Reviewer and sub-reviewer</h3>
+          <p class="where">IEEE Access · IJECE · NeurIPS 2026 · MICCAI 2026 ShapeMI Workshop · Pattern Recognition (Elsevier, as sub-reviewer)</p>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="when">Mar 2026 – present</span>
+        <div>
+          <h3>Secretary</h3>
+          <p class="where">IEEE Computer Society Bangladesh Chapter — Secretariat &amp; Student Activities Committee</p>
+          <ul>
+            <li>Support Executive Committee initiatives, maintain chapter records, manage the chapter's online presence.</li>
+            <li>Coordinate inter-university student programmes, workshops and seminars.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="when">Sep 2025 – present</span>
+        <div>
+          <h3>Ambassador</h3>
+          <p class="where">International Computer Science Competition (ICSC), Heidelberg, Germany</p>
+          <ul><li>Represent the competition at universities and student societies; organise information sessions and workshops.</li></ul>
+        </div>
+      </div>
+      <div class="entry">
+        <span class="when">May 2025 – Mar 2026</span>
+        <div>
+          <h3>Public Relations Executive</h3>
+          <p class="where">IEEE CS Bangladesh Chapter, Student Activities Committee</p>
+          <ul><li>Managed digital outreach and served as external communications liaison for committee events.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="eyebrow">Skills</p>
+      <h2>Tools of the trade</h2>
+      <dl class="skills">
+        <div><dt>Programming</dt><dd>Python (primary), C, Java, SQL</dd></div>
+        <div><dt>Deep learning</dt><dd>PyTorch, TensorFlow, fastai, lightly.ai, Hugging Face</dd></div>
+        <div><dt>Medical imaging</dt><dd>OpenCV, scikit-image, SimpleITK, NumPy, MATLAB</dd></div>
+        <div><dt>Methods</dt><dd>Self-supervised learning (SimCLR), contrastive learning, transfer learning, segmentation, Grad-CAM, vision transformers</dd></div>
+        <div><dt>Scientific stack</dt><dd>NumPy, pandas, scikit-learn, SciPy, Matplotlib, seaborn</dd></div>
+        <div><dt>Tooling</dt><dd>Git/GitHub, Linux, LaTeX, Jupyter</dd></div>
+        <div><dt>Languages</dt><dd>Bangla (native), English (full professional working proficiency; medium of instruction throughout undergraduate study)</dd></div>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p>I am looking for graduate research positions in medical image analysis and label-efficient learning. Happy to talk about collaborations, reviewing, or anything on this page.</p>
+      <div class="contact-grid">
+        <a href="mailto:mohammadmehedi.munna@gmail.com">mohammadmehedi.munna@gmail.com</a>
+        <a href="cv.pdf">Curriculum vitae (PDF)</a>
+        <a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ">Google Scholar</a>
+        <a href="https://orcid.org/0009-0000-0860-9337">ORCID 0009-0000-0860-9337</a>
+        <a href="https://www.linkedin.com/in/mohammad-mehedi-hasan-munna-719a03225/">LinkedIn</a>
+      </div>
+      <p class="note">References available on request.</p>
+      <footer>Last updated August 2026 · Built and hosted on GitHub Pages</footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// Publication filter
+var buttons = document.querySelectorAll('.filters button');
+var pubs = document.querySelectorAll('.pub');
+buttons.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var f = btn.dataset.filter;
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+    pubs.forEach(function(p){ p.hidden = !(f === 'all' || p.dataset.type === f); });
+  });
+});
+
+// Highlight the section currently in view
+var links = document.querySelectorAll('.nav a');
+var map = {};
+links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+if ('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && map[e.target.id]) {
+        links.forEach(function(a){ a.removeAttribute('aria-current'); });
+        map[e.target.id].setAttribute('aria-current','true');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('section[id]').forEach(function(s){ obs.observe(s); });
+}
+</script>
+</body>
+</html>
