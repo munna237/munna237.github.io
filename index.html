@@ -1,508 +1,1304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mohammad Mehedi Hasan Munna — Medical image analysis &amp; self-supervised learning</title>
-<meta name="description" content="Computer science researcher working on label-efficient and self-supervised machine learning for medical image analysis, with a focus on accelerated MRI reconstruction for low-resource clinical settings.">
-<meta property="og:title" content="Mohammad Mehedi Hasan Munna">
-<meta property="og:description" content="Machine learning for medical image analysis — self-supervised MRI reconstruction for low-resource clinical settings.">
-<meta property="og:type" content="profile">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mohammad Mehedi Hasan Munna — ML Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --film:#e9ecf1;
-  --paper:#ffffff;
-  --ink:#10151f;
-  --slate:#58657a;
-  --rule:#c7ced9;
-  --phase:#b4185e;
-  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-  --gut:clamp(20px,4vw,56px);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--film);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
-a:hover{color:var(--phase);border-bottom-color:var(--phase)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--phase);outline-offset:3px;border-radius:2px}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ---------- shell ---------- */
-.shell{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
-@media(min-width:940px){
-  .shell{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:start}
-}
+  :root {
+    --bg: #f7f8fa;
+    --bg2: #ffffff;
+    --bg3: #eceff3;
+    --teal: #0d8a7d;
+    --teal2: #0a6b61;
+    --teal-dim: rgba(13,138,125,0.09);
+    --teal-dim2: rgba(13,138,125,0.045);
+    --text: #131a24;
+    --text-muted: #6b7684;
+    --text-dim: #47525f;
+    --border: rgba(13,138,125,0.22);
+    --border2: rgba(19,26,36,0.10);
+    --gold: #b45309;
+  }
 
-/* ---------- left rail ---------- */
-.rail{padding:44px 0 28px}
-@media(min-width:940px){.rail{position:sticky;top:0;height:100vh;padding:64px 0 40px;display:flex;flex-direction:column}}
-.mark{
-  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--phase);display:block;margin-bottom:18px;
-}
-.rail h1{
-  font-family:var(--display);
-  font-variation-settings:"wdth" 112,"wght" 760;
-  font-size:clamp(28px,3.1vw,36px);
-  line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;
-}
-.rail .role{font-size:14px;color:var(--slate);margin:0 0 26px;max-width:30ch}
-.nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-@media(min-width:940px){.nav{flex-direction:column;gap:2px;margin-bottom:auto}}
-.nav a{
-  font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--slate);border:0;padding:3px 0;position:relative;
-}
-.nav a::before{content:"";position:absolute;left:-14px;top:50%;width:7px;height:1px;background:var(--phase);opacity:0;transition:opacity .18s}
-.nav a:hover,.nav a[aria-current="true"]{color:var(--ink)}
-@media(min-width:940px){.nav a[aria-current="true"]::before,.nav a:hover::before{opacity:1}}
-.contact-links{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:22px;border-top:1px solid var(--rule)}
-.contact-links a{font-size:13px;border:0;color:var(--slate)}
-.contact-links a:hover{color:var(--phase)}
+  html { scroll-behavior: smooth; }
 
-/* ---------- sections ---------- */
-main{padding-bottom:100px}
-section{padding:44px 0;border-top:1px solid var(--rule)}
-section:first-child{border-top:0;padding-top:clamp(32px,6vw,74px)}
-.eyebrow{
-  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 22px;display:flex;align-items:center;gap:12px;
-}
-.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
-h2{
-  font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 700;
-  font-size:clamp(21px,2.3vw,26px);letter-spacing:-.01em;margin:0 0 18px;line-height:1.2;
-}
-h3{font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 660;font-size:17px;margin:0 0 3px;letter-spacing:-.005em}
-p{margin:0 0 16px;max-width:74ch}
+  /* Touch devices and reduced-motion users get the normal cursor back */
+  @media (hover: none), (pointer: coarse) {
+    body { cursor: auto !important; }
+    .cursor, .cursor-ring { display: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body { cursor: auto !important; }
+    .cursor, .cursor-ring { display: none !important; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    html { scroll-behavior: auto; }
+  }
 
-/* ---------- hero ---------- */
-.lede{
-  font-family:var(--display);font-variation-settings:"wdth" 96,"wght" 480;
-  font-size:clamp(20px,2.5vw,29px);line-height:1.34;letter-spacing:-.015em;
-  max-width:22ch;margin:0 0 10px;
-}
-.lede em{font-style:normal;color:var(--phase)}
-.sub{color:var(--slate);max-width:60ch;margin-bottom:34px}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
 
-/* ---------- signature: k-space sampling mask ---------- */
-.kspace{margin:0;background:var(--paper);border:1px solid var(--rule);padding:22px 22px 14px}
-.kspace svg{display:block;width:100%;height:auto;clip-path:inset(0 50% 0 50%);animation:acquire 1.5s cubic-bezier(.22,.85,.25,1) .25s forwards}
-@keyframes acquire{to{clip-path:inset(0 0 0 0)}}
-.kspace figcaption{
-  font-family:var(--mono);font-size:11px;line-height:1.5;letter-spacing:.02em;color:var(--slate);
-  margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);max-width:64ch;
-}
-.kspace figcaption b{color:var(--ink);font-weight:500}
-@media(prefers-reduced-motion:reduce){
-  .kspace svg{animation:none;clip-path:none}
-  html{scroll-behavior:auto}
-}
+  /* Custom cursor */
+  .cursor {
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+    width: 10px; height: 10px;
+    background: var(--teal);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(13,138,125,0.45);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+  }
 
-/* ---------- stats strip ---------- */
-.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:30px}
-.strip div{background:var(--film);padding:16px 18px}
-.strip .n{font-family:var(--display);font-variation-settings:"wdth" 108,"wght" 720;font-size:26px;line-height:1;display:block}
-.strip .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);margin-top:7px;display:block}
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--teal2); border-radius: 2px; }
 
-/* ---------- publications ---------- */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.filters button{
-  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  background:transparent;border:1px solid var(--rule);color:var(--slate);
-  padding:7px 13px;cursor:pointer;transition:.16s;
-}
-.filters button:hover{border-color:var(--ink);color:var(--ink)}
-.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--film)}
-.pubs{list-style:none;margin:0;padding:0}
-.pub{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:19px 0;border-top:1px solid var(--rule)}
-.pub:first-child{border-top:0;padding-top:0}
-.pub[hidden]{display:none}
-.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--slate);padding-top:4px}
-.pub-title{font-family:var(--display);font-variation-settings:"wdth" 100,"wght" 620;font-size:16.5px;line-height:1.4;margin:0 0 6px;letter-spacing:-.005em}
-.authors{font-size:13.5px;color:var(--slate);margin:0 0 7px;line-height:1.55}
-.authors b{color:var(--ink);font-weight:600}
-.meta{font-family:var(--mono);font-size:11.5px;color:var(--slate);margin:0;display:flex;flex-wrap:wrap;gap:5px 10px;align-items:baseline}
-.meta .venue{color:var(--ink)}
-.meta a{border-bottom-color:var(--rule);color:var(--slate)}
-.status{color:var(--phase)}
-.note{font-size:13.5px;color:var(--slate);margin-top:20px;font-style:italic}
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border2);
+    background: rgba(247,248,250,0.82);
+  }
+  .nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--teal); }
 
-/* ---------- entries (experience / service) ---------- */
-.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid var(--rule)}
-.entry:first-of-type{border-top:0;padding-top:0}
-.when{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--slate);padding-top:4px}
-.where{font-size:13.5px;color:var(--slate);margin:0 0 9px}
-.entry ul{margin:0;padding-left:17px}
-.entry li{margin-bottom:5px;font-size:14.5px}
-@media(max-width:620px){
-  .entry,.pub{grid-template-columns:1fr;gap:7px}
-  .when,.tag{padding-top:0}
-}
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-photo-col {
+    flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+  .hero-photo-frame {
+    position: relative; width: 240px; height: 280px;
+  }
+  .hero-photo-frame::before {
+    content: ''; position: absolute; inset: -2px;
+    background: conic-gradient(var(--teal), transparent, var(--teal2), transparent, var(--teal));
+    border-radius: 14px; z-index: 0;
+    animation: rotateBorder 4s linear infinite;
+  }
+  @keyframes rotateBorder { to { transform: rotate(360deg); } }
+  .hero-photo-frame::after {
+    content: ''; position: absolute; inset: 1px;
+    background: var(--bg); border-radius: 12px; z-index: 0;
+  }
+  .hero-photo-frame img, .hero-photo-placeholder {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover; border-radius: 12px; display: block;
+  }
+  .hero-photo-placeholder {
+    background: var(--bg3);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .hero-photo-placeholder:hover { background: var(--teal-dim); }
+  .upload-icon { font-size: 2.5rem; opacity: 0.35; }
+  .upload-text {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+    color: var(--text-muted); letter-spacing: 0.08em; text-align: center; line-height: 1.7;
+  }
+  .hero-photo-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--teal); letter-spacing: 0.06em;
+    border: 1px solid var(--border); padding: 0.35rem 0.9rem; background: var(--teal-dim2);
+  }
+  #photoInput { display: none; }
 
-/* ---------- skills ---------- */
-.skills{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:700px){.skills{grid-template-columns:1fr 1fr}}
-.skills div{background:var(--film);padding:15px 18px}
-.skills dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--phase);margin-bottom:5px}
-.skills dd{margin:0;font-size:14.5px;line-height:1.55}
+  .gallery-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+  .gallery-card img + .gallery-overlay { z-index:2; }
 
-/* ---------- contact ---------- */
-.contact-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
-.contact-grid a{
-  font-family:var(--mono);font-size:12px;letter-spacing:.05em;
-  border:1px solid var(--rule);padding:9px 15px;color:var(--ink);transition:.16s;
-}
-.contact-grid a:hover{background:var(--ink);color:var(--film);border-color:var(--ink)}
-footer{font-family:var(--mono);font-size:11px;color:var(--slate);padding:26px 0 0;border-top:1px solid var(--rule);margin-top:44px}
+  .pub-card, .skill-group, .award-card, .timeline-item { box-shadow: 0 1px 2px rgba(19,26,36,0.04); }
+
+  /* Grid background */
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(13,138,125,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13,138,125,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  /* Glow blobs */
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none;
+  }
+  .blob-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(13,138,125,0.10) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: float1 8s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(10,107,97,0.08) 0%, transparent 70%);
+    bottom: 0; left: 10%;
+    animation: float2 10s ease-in-out infinite;
+  }
+  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,30px)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--teal);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before { content: '▶'; font-size: 0.5rem; }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-name span { color: var(--teal); font-style: italic; }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    max-width: 580px;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--teal);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    padding: 0.9rem 2rem;
+    background: var(--teal);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-primary:hover { background: #99f6e4; transform: translateY(-2px); }
+  .btn-outline {
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--teal);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--teal); background: var(--teal-dim); }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 3rem; left: 4rem;
+    display: flex; align-items: center; gap: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+  .scroll-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    animation: expandLine 1.5s 1s ease both;
+  }
+  @keyframes expandLine { from { width: 0; } to { width: 60px; } }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+  }
+  .section-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-dim);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .interest-tag {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--teal-dim2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .interest-tag::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--teal-dim);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .interest-tag:hover::before { transform: translateX(0); }
+  .interest-tag:hover { border-color: var(--teal); }
+  .interest-tag span { position: relative; z-index: 1; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--teal), var(--teal2), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3rem 2.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute; left: -2rem; top: 0.4rem;
+    width: 10px; height: 10px;
+    background: var(--teal);
+    border-radius: 50%;
+    transform: translateX(-4px);
+    box-shadow: 0 0 12px var(--teal);
+  }
+  .timeline-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-org {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .timeline-points li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--teal);
+    font-size: 0.75rem;
+  }
+
+  /* PUBLICATIONS */
+  #publications { background: var(--bg2); }
+  .pub-tabs {
+    display: flex; gap: 0; margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border2);
+  }
+  .pub-tab {
+    padding: 0.8rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.3s;
+    letter-spacing: 0.05em;
+    background: none; border-top: none; border-left: none; border-right: none;
+  }
+  .pub-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+  .pub-tab:hover { color: var(--text); }
+
+  .pub-content { display: none; }
+  .pub-content.active { display: block; }
+
+  .pub-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--teal2);
+    background: var(--bg3);
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .pub-card:hover { border-left-color: var(--teal); background: var(--teal-dim2); }
+  .pub-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+  .pub-venue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+  .pub-doi {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .pub-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(180,83,9,0.09);
+    border: 1px solid rgba(180,83,9,0.28);
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    margin-left: 0.8rem;
+    vertical-align: middle;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group {
+    padding: 1.8rem;
+    border: 1px solid var(--border2);
+    background: var(--bg2);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-group::after {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .skill-group:hover::after { transform: scaleX(1); }
+  .skill-group:hover { border-color: var(--border); transform: translateY(-4px); }
+  .skill-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-pill {
+    padding: 0.3rem 0.8rem;
+    background: var(--teal-dim2);
+    border: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .skill-pill:hover { color: var(--teal); border-color: var(--teal2); }
+
+  /* AWARDS */
+  #awards { background: var(--bg2); }
+  .awards-row {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .award-card {
+    flex: 1; min-width: 280px;
+    padding: 2rem;
+    border: 1px solid rgba(245,158,11,0.2);
+    background: rgba(245,158,11,0.03);
+    position: relative;
+    transition: all 0.3s;
+  }
+  .award-card:hover { border-color: rgba(245,158,11,0.5); background: rgba(245,158,11,0.06); }
+  .award-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .award-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .award-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* CONTACT */
+  #contact { background: var(--bg); text-align: center; }
+  .contact-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.3;
+  }
+  .contact-tagline em { color: var(--teal); font-style: italic; }
+  .contact-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+  }
+  .contact-links {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+  .contact-link:hover { color: var(--teal); border-color: var(--teal); background: var(--teal-dim); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border2);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* GALLERY */
+  #gallery { background: var(--bg3); }
+  .gallery-intro {
+    color: var(--text-dim); font-size: 0.95rem; line-height: 1.8;
+    max-width: 600px; margin-bottom: 3rem;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+  .gallery-card {
+    position: relative; overflow: hidden; border-radius: 4px;
+    border: 1px solid var(--border2);
+    background: var(--bg2);
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+    aspect-ratio: 4/3;
+  }
+  .gallery-card.tall { grid-row: span 2; aspect-ratio: unset; }
+  .gallery-card.wide { grid-column: span 2; }
+  .gallery-card:hover { transform: scale(1.02); border-color: var(--teal2); }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+  .gallery-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-card:hover img { transform: scale(1.06); }
+  .gallery-placeholder {
+    width: 100%; height: 100%; min-height: 160px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--bg2);
+    cursor: pointer; transition: background 0.3s;
+  }
+  .gallery-placeholder:hover { background: var(--teal-dim2); }
+  .gallery-placeholder .ph-icon { font-size: 1.8rem; opacity: 0.3; }
+  .gallery-placeholder .ph-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--text-muted); letter-spacing: 0.07em; text-align: center; line-height: 1.6;
+  }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(7,9,15,0.9) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 1rem;
+  }
+  .gallery-caption {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    color: var(--text); letter-spacing: 0.05em; line-height: 1.5;
+  }
+  .gallery-caption strong { color: var(--teal); display: block; }
+  .gallery-add-btn {
+    margin-top: 2rem;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px dashed var(--border);
+    background: transparent; color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+    letter-spacing: 0.06em; cursor: pointer; transition: all 0.3s;
+  }
+  .gallery-add-btn:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-dim2); }
+
+  /* Lightbox */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(7,9,15,0.95); backdrop-filter: blur(10px);
+    align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 85vw; max-height: 75vh; object-fit: contain; border-radius: 4px; }
+  .lightbox-close {
+    position: absolute; top: 2rem; right: 2rem;
+    background: none; border: 1px solid var(--border); color: var(--text);
+    font-size: 1.2rem; width: 42px; height: 42px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .lightbox-close:hover { border-color: var(--teal); color: var(--teal); }
+  .lightbox-caption {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+    color: var(--text-muted); letter-spacing: 0.06em; text-align: center;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 5rem 2rem; }
+    #hero { padding: 7rem 2rem 4rem; }
+    .hero-inner { flex-direction: column-reverse; gap: 2.5rem; align-items: flex-start; }
+    .hero-photo-col { align-self: center; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 2rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-card.wide { grid-column: span 1; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .scroll-hint { display: none; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .interests-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-card.tall { grid-row: span 1; }
+  }
 </style>
 </head>
 <body>
-<div class="shell">
 
-  <aside class="rail">
-    <span class="mark">Dhaka, Bangladesh</span>
-    <h1>Mohammad<br>Mehedi Hasan<br>Munna</h1>
-    <p class="role">Machine learning for medical image analysis — label-efficient and self-supervised methods.</p>
-    <nav class="nav" aria-label="Sections">
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
-      <a href="#service">Service</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="contact-links">
-      <a href="mailto:mohammadmehedi.munna@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ">Scholar</a>
-      <a href="https://orcid.org/0009-0000-0860-9337">ORCID</a>
-      <a href="https://www.linkedin.com/in/mohammad-mehedi-hasan-munna-719a03225/">LinkedIn</a>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MMHM // ML RESEARCHER</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero-inner">
+  <!-- Photo column -->
+  <div class="hero-photo-col">
+    <div class="hero-photo-frame">
+      <img src="portrait.jpg" alt="Mohammad Mehedi Hasan Munna">
     </div>
-  </aside>
-
-  <main>
-
-    <section id="top">
-      <p class="lede">Reconstructing MRI from <em>less data</em> than the scanner is supposed to need.</p>
-      <p class="sub">Deep learning normally pays for accuracy with labelled data that clinics in Bangladesh do not have. My work asks how far self-supervised and label-efficient methods can close that gap — in MRI reconstruction, in histopathology, and in screening tools meant to run on ordinary hospital hardware.</p>
-
-      <figure class="kspace">
-        <svg viewBox="0 0 800 130" role="img" aria-label="Diagram of a variable-density k-space sampling mask: sampling lines packed densely at the centre and thinning towards the edges.">
-          <g stroke="#10151f" stroke-width="1.4" opacity=".42">
-            <path d="M12 14V116M44 14V116M76 14V116M108 14V116M140 14V116M172 14V116M192 14V116M212 14V116M232 14V116M252 14V116M272 14V116M292 14V116M304 14V116M316 14V116M328 14V116M340 14V116"/>
-            <path d="M788 14V116M756 14V116M724 14V116M692 14V116M660 14V116M628 14V116M608 14V116M588 14V116M568 14V116M548 14V116M528 14V116M508 14V116M496 14V116M484 14V116M472 14V116M460 14V116"/>
-          </g>
-          <g stroke="#b4185e" stroke-width="1.6">
-            <path d="M352 14V116M356 14V116M360 14V116M364 14V116M368 14V116M372 14V116M376 14V116M380 14V116M384 14V116M388 14V116M392 14V116M396 14V116M400 14V116M404 14V116M408 14V116M412 14V116M416 14V116M420 14V116M424 14V116M428 14V116M432 14V116M436 14V116M440 14V116M444 14V116M448 14V116"/>
-          </g>
-          <g fill="#58657a" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1">
-            <text x="0" y="129">high frequency</text>
-            <text x="400" y="129" text-anchor="middle" fill="#b4185e">k = 0</text>
-            <text x="800" y="129" text-anchor="end">high frequency</text>
-          </g>
-        </svg>
-        <figcaption><b>Variable-density undersampling.</b> Skip most of k-space, keep the low-frequency centre, and a scan that took ten minutes takes two. What you lose is the guarantee that the image is real — recovering it is the problem I work on.</figcaption>
-      </figure>
-
-      <div class="strip">
-        <div><span class="n">11</span><span class="l">Peer-reviewed papers</span></div>
-        <div><span class="n">7</span><span class="l">As first author</span></div>
-        <div><span class="n">6</span><span class="l">Under review</span></div>
-        <div><span class="n">2026</span><span class="l">BSc, East West University</span></div>
+    <div class="hero-photo-badge">ML RESEARCHER</div>
+  </div>
+  <!-- Text column -->
+  <div class="hero-content">
+    <div class="hero-tag">BSc CSE · East West University · Dhaka, Bangladesh</div>
+    <h1 class="hero-name">
+      Mohammad<br>Mehedi Hasan<br><span>Munna</span>
+    </h1>
+    <p class="hero-desc">
+      ML researcher working on <strong>medical image analysis</strong> — self-supervised MRI reconstruction, label-efficient learning, and <strong>explainable AI</strong> for clinical settings where annotated data is scarce.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">11</span>
+        <div class="stat-label">Publications</div>
       </div>
-    </section>
-
-    <section id="research">
-      <p class="eyebrow">Research</p>
-      <h2>What I work on</h2>
-      <p>My undergraduate thesis, <em>Self-Supervised Learning for Offline MRI Reconstruction</em>, trains reconstruction models without fully sampled ground truth — the setting that actually holds in hospitals where nobody has time to acquire reference scans. Around it sit related questions: how much image compression a diagnostic model can survive, how to squeeze a multi-task diagnostic pipeline onto a small device, and how to audit a model well enough that a clinician could reasonably trust it.</p>
-      <div class="skills" style="margin-top:22px">
-        <div><dt>Reconstruction</dt><dd>Self-supervised and offline MRI reconstruction from undersampled k-space.</dd></div>
-        <div><dt>Label efficiency</dt><dd>Contrastive and self-supervised pretraining where annotation budgets are small.</dd></div>
-        <div><dt>Clinical robustness</dt><dd>Compression thresholds, distribution shift, and failure auditing in diagnostic models.</dd></div>
-        <div><dt>Trustworthy AI</dt><dd>Explainable attention and error analysis for screening tools in low-resource settings.</dd></div>
+      <div>
+        <span class="stat-num">6</span>
+        <div class="stat-label">Under Review</div>
       </div>
-      <p style="margin-top:22px">Education: BSc in Computer Science and Engineering, East West University, Dhaka (Feb 2022 – Aug 2026). Coursework in artificial intelligence, machine learning, digital image processing, computer vision, data structures and algorithms, and statistics for data science.</p>
-    </section>
-
-    <section id="publications">
-      <p class="eyebrow">Publications</p>
-      <h2>Papers</h2>
-      <div class="filters" role="group" aria-label="Filter publications by type">
-        <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="journal" aria-pressed="false">Journal</button>
-        <button type="button" data-filter="review" aria-pressed="false">Under review</button>
-        <button type="button" data-filter="conf" aria-pressed="false">Conference</button>
-        <button type="button" data-filter="chapter" aria-pressed="false">Book chapter</button>
+      <div>
+        <span class="stat-num">7</span>
+        <div class="stat-label">First Author</div>
       </div>
+      <div>
+        <span class="stat-num">9</span>
+        <div class="stat-label">Conferences</div>
+      </div>
+      <div>
+        <span class="stat-num">1</span>
+        <div class="stat-label">Book Chapter</div>
+      </div>
+      <div>
+        <span class="stat-num">🏆</span>
+        <div class="stat-label">Best Intern Award</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#publications" class="btn-primary">View Research</a>
+      <a href="mailto:mohammadmehedi.munna@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  </div><!-- end hero-inner -->
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
 
-      <ul class="pubs">
-        <li class="pub" data-type="journal">
-          <span class="tag">J1</span>
-          <div>
-            <p class="pub-title">A runtime safety copilot for AI-native O-RAN: predictive verification and fail-safe enforcement in near-RT RIC control loops</p>
-            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Kabir, A. H., Antu, N. H., &amp; Tulona, R. F.</p>
-            <p class="meta"><span class="venue">IEEE Access</span><span>2026</span><a href="https://doi.org/10.1109/ACCESS.2026.3686132">10.1109/ACCESS.2026.3686132</a></p>
-          </div>
-        </li>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a Computer Science graduate of <strong>East West University, Dhaka</strong> (BSc CSE, Feb 2022 – Aug 2026), working at the intersection of deep learning and biomedical imaging.</p>
+      <p>I work as a <strong>Research Intern at AMIR Lab (DAIBI)</strong> on lightweight deep learning models for biomedical imaging, and previously as a <strong>Research Assistant at CCDS, Independent University Bangladesh</strong>, on medical image segmentation with self-supervised learning.</p>
+      <p>My undergraduate thesis, <strong>Self-Supervised Learning for Offline MRI Reconstruction</strong>, trains reconstruction models without fully sampled ground truth — the setting that actually holds in hospitals that cannot spare scanner time for reference acquisitions.</p>
+      <p>I have <strong>eleven peer-reviewed papers</strong> (first author on seven) and six manuscripts under review at <em>JMRI</em>, <em>PLOS ONE</em>, <em>Smart Agricultural Technology</em>, and <em>IEEE Access</em>.</p>
+      <p>I review for <strong>IEEE Access</strong> and <strong>IJECE</strong>, and for <strong>NeurIPS 2026</strong> and the <strong>MICCAI 2026 ShapeMI Workshop</strong>. I serve as Secretary of the IEEE Computer Society Bangladesh Chapter.</p>
+    </div>
+    <div class="reveal">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:1.2rem; color:var(--text-dim);">Research Interests</h3>
+      <div class="interests-grid">
+        <div class="interest-tag"><span>🧠 Medical Imaging & DL</span></div>
+        <div class="interest-tag"><span>👁️ Computer Vision</span></div>
+        <div class="interest-tag"><span>🔍 Explainable AI (XAI)</span></div>
+        <div class="interest-tag"><span>🖼️ Image Processing</span></div>
+        <div class="interest-tag"><span>🧲 MRI Reconstruction</span></div>
+        <div class="interest-tag"><span>🧪 Self-Supervised Learning</span></div>
+        <div class="interest-tag"><span>🌐 IoT</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <li class="pub" data-type="review">
-          <span class="tag">U1</span>
-          <div>
-            <p class="pub-title">Self-supervised learning for accelerated MRI: a critical review of paradigms, trustworthiness, and translational challenges</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Chowdhury Rafi, A. M., Sami, M. J. I., Sifat, K. M., Sultana, T., Ul Islam, R., Tulona, R. F., &amp; Kabir, A. H.</p>
-            <p class="meta"><span class="venue">Journal of Magnetic Resonance Imaging</span><span class="status">Under review</span><span>First and co-corresponding author</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="review">
-          <span class="tag">U2</span>
-          <div>
-            <p class="pub-title">Artificial intelligence for women's reproductive health: a scoping review of global diagnostic trends, methodological gaps, and a translational research agenda for low-resource settings</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Islam, T., Faruk, O., Tulona, R. F., Sultana, A., Saima, F., Kabir, A. H., Sultana, T., &amp; Ul Islam, R.</p>
-            <p class="meta"><span class="venue">PLOS ONE</span><span class="status">Major revision under review</span><span>First and corresponding author</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="review">
-          <span class="tag">U3</span>
-          <div>
-            <p class="pub-title">JPEG2000 compression thresholds for deep learning-based cancer histopathology classification: a multi-dataset, multi-tissue evaluation with compression-aware training</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Kabir, A. H., Tulona, R. F., Saha, S., Kabir, S. S., Habib, I., Dhrubo, V., &amp; Sultana, T.</p>
-            <p class="meta"><span class="venue">PLOS ONE</span><span class="status">Under review</span><span>First and corresponding author</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="review">
-          <span class="tag">U4</span>
-          <div>
-            <p class="pub-title">AGRI-KD: a lightweight multi-task framework for rice disease diagnosis with localization and severity quantification</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Tulona, R. F., &amp; Kabir, A. H.</p>
-            <p class="meta"><span class="venue">Smart Agricultural Technology</span><span class="status">Under review</span><span>First and corresponding author</span></p>
-          </div>
-        </li>
-
-        <li class="pub" data-type="chapter">
-          <span class="tag">B1</span>
-          <div>
-            <p class="pub-title">Explainable hybrid convolutional networks for accurate malaria diagnosis in blood smear images</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Aman Turzo, N., Saha, S., Islam, T., Safy, I. H., Saima, F., &amp; Nusrat, S.</p>
-            <p class="meta"><span class="venue">Data Science, AI and Applications (ICDSAIA 2025), CCIS vol. 2682, Springer</span><span>2025</span><a href="https://doi.org/10.1007/978-3-032-11352-8_4">10.1007/978-3-032-11352-8_4</a></p>
-          </div>
-        </li>
-
-        <li class="pub" data-type="conf">
-          <span class="tag">C1</span>
-          <div>
-            <p class="pub-title">AI-assisted PCOS screening from ultrasound using vision transformers and explainable attention</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Afrin Anamika, S., Sultana, A., Mia, M. S., Islam, T., Mahmud Bitto, P., Sultana, T., Rashid, M. R. A., Ul Islam, R., Reza, A. W., &amp; Ripon, S. H.</p>
-            <p class="meta"><span class="venue">5th ICECTE</span><span>2026</span><a href="https://doi.org/10.1109/ICECTE69292.2026.11429340">10.1109/ICECTE69292.2026.11429340</a></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C2</span>
-          <div>
-            <p class="pub-title">Deep learning for reliable healthcare: insights from chest X-ray prediction</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Kabir, S. S., Bari, S., Islam, T., Dhrubo, V., Kabir, A. H., &amp; Tulona, R. F.</p>
-            <p class="meta"><span class="venue">28th ICCIT</span><span>2025</span><span>Accepted, oral presentation</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C3</span>
-          <div>
-            <p class="pub-title">Contrastive representation learning for acute lymphoblastic leukemia: a SimCLR and EfficientNet-B0 approach</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Bari, S., Mia, M. S., Kabir, A. H., Tulona, R. F., &amp; Enan, I. I.</p>
-            <p class="meta"><span class="venue">SPICSCON, IEEE</span><span>2025</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C4</span>
-          <div>
-            <p class="pub-title">Automated diagnosis of acute lymphoblastic leukemia leveraging EfficientNet and fastai</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Habib, I., Turzo, N. A., Jahan, N., &amp; Nusrat, S.</p>
-            <p class="meta"><span class="venue">27th ICCIT, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/ICCIT64611.2024.11021950">10.1109/ICCIT64611.2024.11021950</a></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C5</span>
-          <div>
-            <p class="pub-title">A novel hybrid Xception-DenseNet121 model for acute lymphoblastic leukemia classification</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Habib, I., &amp; Aman, N.</p>
-            <p class="meta"><span class="venue">6th STI, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/STI64222.2024.10951150">10.1109/STI64222.2024.10951150</a></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C6</span>
-          <div>
-            <p class="pub-title">Leveraging hybrid deep learning for effective multiclass blood cancer detection</p>
-            <p class="authors">Habib, I., <b>Munna, M. M. H.</b>, &amp; Aman, N.</p>
-            <p class="meta"><span class="venue">ICRPSET, IEEE</span><span>2024</span><a href="https://doi.org/10.1109/ICRPSET64863.2024.10955897">10.1109/ICRPSET64863.2024.10955897</a></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C7</span>
-          <div>
-            <p class="pub-title">A comparative survey of IoT platforms: architecture, security, and emerging trends toward distributed intelligence</p>
-            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Tulona, R. F., Antu, N. H., &amp; Kabir, A. H.</p>
-            <p class="meta"><span class="venue">8th ICHORA</span><span>2026</span><span>Accepted, oral presentation</span></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C8</span>
-          <div>
-            <p class="pub-title">Optimized bandwidth allocation in cellular networks using genetic algorithms and a historical stability index</p>
-            <p class="authors">Jawad, M. A., <b>Munna, M. M. H.</b>, Antu, N. H., Tulona, R. F., Kabir, A. H., &amp; Islam, A.</p>
-            <p class="meta"><span class="venue">ICNGN</span><span>2025</span><a href="https://doi.org/10.1109/ICNGN67480.2025.11413736">10.1109/ICNGN67480.2025.11413736</a></p>
-          </div>
-        </li>
-        <li class="pub" data-type="conf">
-          <span class="tag">C9</span>
-          <div>
-            <p class="pub-title">Deep learning in cybersecurity: a hybrid CNN framework for multi-source malware detection</p>
-            <p class="authors"><b>Munna, M. M. H.</b>, Aman, N., Saha, S., Islam, T., Nusrat, S., &amp; Das, S. K.</p>
-            <p class="meta"><span class="venue">QPAIN, IEEE</span><span>2025</span><a href="https://doi.org/10.1109/QPAIN66474.2025.11171945">10.1109/QPAIN66474.2025.11171945</a></p>
-          </div>
-        </li>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Mar 2026 – Present</div>
+      <div class="timeline-role">Secretary</div>
+      <div class="timeline-org">IEEE Computer Society Bangladesh Chapter — Secretariat &amp; SAC</div>
+      <ul class="timeline-points">
+        <li>Support Executive Committee initiatives, maintain chapter records and manage the chapter's online presence.</li>
+        <li>Coordinate inter-university student programmes, workshops and seminars.</li>
       </ul>
-      <p class="note">Two further co-authored manuscripts are under review at IEEE Access (IoT gateway architecture; embedded flood-risk sensing).</p>
-    </section>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Feb 2026 – Present</div>
+      <div class="timeline-role">Research Intern</div>
+      <div class="timeline-org">AMIR Lab (DAIBI), Dhaka, Bangladesh</div>
+      <ul class="timeline-points">
+        <li>Developing lightweight, optimized deep learning models for biomedical imaging.</li>
+        <li>Collaborating on ongoing computer vision projects and research paper development.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Dec 2025 – May 2026</div>
+      <div class="timeline-role">Research Assistant (Intern)</div>
+      <div class="timeline-org">Center for Computational &amp; Data Sciences (CCDS) — Independent University, Bangladesh</div>
+      <ul class="timeline-points">
+        <li>Conducting sustainable computer vision research for medical image segmentation using Self-Supervised Learning.</li>
+        <li>Developing automated annotation pipelines for agricultural imaging datasets (Tea Leaf Disease).</li>
+        <li>Tech Stack: Python, PyTorch, YOLOv8, OpenCV.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jan 2025 – Jun 2025</div>
+      <div class="timeline-role">Tech Course Analyst & Coordinator (Intern)</div>
+      <div class="timeline-org">ICT Olympiad Bangladesh, Dhaka</div>
+      <ul class="timeline-points">
+        <li>Redesigned ICT curriculum to meet national and global standards.</li>
+        <li>Researched emerging tech trends for course development.</li>
+        <li>Awarded Best Intern – ICT Olympiad Bangladesh Season 2.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">May 2025 – Mar 2026</div>
+      <div class="timeline-role">Public Relations Executive</div>
+      <div class="timeline-org">IEEE CS BDC Student Activities Committee</div>
+      <ul class="timeline-points">
+        <li>Organizing workshops and networking events connecting students with industry professionals.</li>
+        <li>Coordinating with university branches across Bangladesh to align with IEEE's global mission.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <section id="experience">
-      <p class="eyebrow">Experience</p>
-      <h2>Where I have worked</h2>
-      <div class="entry">
-        <span class="when">Dec 2025 – May 2026</span>
-        <div>
-          <h3>Research Assistant (Intern)</h3>
-          <p class="where">Center for Computational &amp; Data Sciences (CCDS), Independent University Bangladesh</p>
-          <ul>
-            <li>Developed self-supervised computer vision methods for medical image segmentation under limited annotation budgets.</li>
-            <li>Built automated annotation pipelines for agricultural imaging datasets, including a tea leaf disease corpus.</li>
-            <li>Python, PyTorch, YOLOv8, OpenCV.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="entry">
-        <span class="when">Jan 2025 – Jun 2025</span>
-        <div>
-          <h3>Tech Course Analyst &amp; Coordinator (Intern)</h3>
-          <p class="where">ICT Olympiad Bangladesh, Dhaka</p>
-          <ul>
-            <li>Redesigned ICT curriculum content to align with national and international standards.</li>
-            <li>Surveyed emerging technology trends to inform course development.</li>
-            <li>Named Best Intern, Season 2 (2025).</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-tabs">
+    <button class="pub-tab active" onclick="showTab('journal')">Journal</button>
+    <button class="pub-tab" onclick="showTab('review')">Under Review</button>
+    <button class="pub-tab" onclick="showTab('conference')">Conference Papers</button>
+    <button class="pub-tab" onclick="showTab('book')">Book Chapters</button>
+  </div>
 
-    <section id="service">
-      <p class="eyebrow">Service &amp; leadership</p>
-      <h2>Beyond the lab</h2>
-      <div class="entry">
-        <span class="when">2025 – present</span>
-        <div>
-          <h3>Reviewer and sub-reviewer</h3>
-          <p class="where">IEEE Access · IJECE · NeurIPS 2026 · MICCAI 2026 ShapeMI Workshop · Pattern Recognition (Elsevier, as sub-reviewer)</p>
-        </div>
+  <div class="pub-content active" id="tab-journal">
+    <div class="pub-card" style="animation-delay:0.05s">
+      <div class="pub-title">
+        A Runtime Safety Copilot for AI-Native O-RAN: Predictive Verification and Fail-Safe Enforcement in Near-RT RIC Control Loops
+        <span class="pub-badge">IF 3.9</span>
       </div>
-      <div class="entry">
-        <span class="when">Mar 2026 – present</span>
-        <div>
-          <h3>Secretary</h3>
-          <p class="where">IEEE Computer Society Bangladesh Chapter — Secretariat &amp; Student Activities Committee</p>
-          <ul>
-            <li>Support Executive Committee initiatives, maintain chapter records, manage the chapter's online presence.</li>
-            <li>Coordinate inter-university student programmes, workshops and seminars.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="entry">
-        <span class="when">Sep 2025 – present</span>
-        <div>
-          <h3>Ambassador</h3>
-          <p class="where">International Computer Science Competition (ICSC), Heidelberg, Germany</p>
-          <ul><li>Represent the competition at universities and student societies; organise information sessions and workshops.</li></ul>
-        </div>
-      </div>
-      <div class="entry">
-        <span class="when">May 2025 – Mar 2026</span>
-        <div>
-          <h3>Public Relations Executive</h3>
-          <p class="where">IEEE CS Bangladesh Chapter, Student Activities Committee</p>
-          <ul><li>Managed digital outreach and served as external communications liaison for committee events.</li></ul>
-        </div>
-      </div>
-    </section>
+      <div class="pub-venue">IEEE Access · 2026 · Jawad, Munna, Kabir, Antu &amp; Tulona</div>
+      <div class="pub-doi">DOI: 10.1109/ACCESS.2026.3686132</div>
+    </div>
+  </div>
 
-    <section id="skills">
-      <p class="eyebrow">Skills</p>
-      <h2>Tools of the trade</h2>
-      <dl class="skills">
-        <div><dt>Programming</dt><dd>Python (primary), C, Java, SQL</dd></div>
-        <div><dt>Deep learning</dt><dd>PyTorch, TensorFlow, fastai, lightly.ai, Hugging Face</dd></div>
-        <div><dt>Medical imaging</dt><dd>OpenCV, scikit-image, SimpleITK, NumPy, MATLAB</dd></div>
-        <div><dt>Methods</dt><dd>Self-supervised learning (SimCLR), contrastive learning, transfer learning, segmentation, Grad-CAM, vision transformers</dd></div>
-        <div><dt>Scientific stack</dt><dd>NumPy, pandas, scikit-learn, SciPy, Matplotlib, seaborn</dd></div>
-        <div><dt>Tooling</dt><dd>Git/GitHub, Linux, LaTeX, Jupyter</dd></div>
-        <div><dt>Languages</dt><dd>Bangla (native), English (full professional working proficiency; medium of instruction throughout undergraduate study)</dd></div>
-      </dl>
-    </section>
+  <div class="pub-content" id="tab-review">
+    <div class="pub-card" style="animation-delay:0.05s">
+      <div class="pub-title">Self-Supervised Learning for Accelerated MRI: A Critical Review of Paradigms, Trustworthiness, and Translational Challenges <span class="pub-badge">UNDER REVIEW</span></div>
+      <div class="pub-venue">Journal of Magnetic Resonance Imaging (JMRI) · First and co-corresponding author</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.1s">
+      <div class="pub-title">Artificial Intelligence for Women's Reproductive Health: A Scoping Review of Global Diagnostic Trends, Methodological Gaps, and a Translational Research Agenda for Low-Resource Settings <span class="pub-badge">MAJOR REVISION</span></div>
+      <div class="pub-venue">PLOS ONE · First and corresponding author</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.15s">
+      <div class="pub-title">JPEG2000 Compression Thresholds for Deep Learning-Based Cancer Histopathology Classification: A Multi-Dataset, Multi-Tissue Evaluation with Compression-Aware Training <span class="pub-badge">UNDER REVIEW</span></div>
+      <div class="pub-venue">PLOS ONE · First and corresponding author</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.2s">
+      <div class="pub-title">AGRI-KD: A Lightweight Multi-Task Framework for Rice Disease Diagnosis with Localization and Severity Quantification <span class="pub-badge">UNDER REVIEW</span></div>
+      <div class="pub-venue">Smart Agricultural Technology · First and corresponding author</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.25s">
+      <div class="pub-title">Two further co-authored manuscripts</div>
+      <div class="pub-venue">IEEE Access · IoT gateway architecture; embedded flood-risk sensing</div>
+    </div>
+  </div>
 
-    <section id="contact">
-      <p class="eyebrow">Contact</p>
-      <h2>Get in touch</h2>
-      <p>I am looking for graduate research positions in medical image analysis and label-efficient learning. Happy to talk about collaborations, reviewing, or anything on this page.</p>
-      <div class="contact-grid">
-        <a href="mailto:mohammadmehedi.munna@gmail.com">mohammadmehedi.munna@gmail.com</a>
-        <a href="cv.pdf">Curriculum vitae (PDF)</a>
-        <a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ">Google Scholar</a>
-        <a href="https://orcid.org/0009-0000-0860-9337">ORCID 0009-0000-0860-9337</a>
-        <a href="https://www.linkedin.com/in/mohammad-mehedi-hasan-munna-719a03225/">LinkedIn</a>
+  <div class="pub-content" id="tab-conference">
+    <div class="pub-card" style="animation-delay:0.02s">
+      <div class="pub-title">A Comparative Survey of IoT Platforms: Architecture, Security, and Emerging Trends Toward Distributed Intelligence <span class="pub-badge">ORAL</span></div>
+      <div class="pub-venue">ICHORA 2026 · 8th Intl. Congress on Human-Computer Interaction, Optimization and Robotic Applications</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.05s">
+      <div class="pub-title">AI-Assisted PCOS Screening from Ultrasound Using Vision Transformers and Explainable Attention</div>
+      <div class="pub-venue">ICECTE 2026 · 5th Intl. Conference on Electrical, Computer & Telecommunication Engineering</div>
+      <div class="pub-doi">DOI: 10.1109/ICECTE69292.2026.11429340</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.1s">
+      <div class="pub-title">Deep Learning for Reliable Healthcare: Insights from Chest X-Ray Prediction <span class="pub-badge">ORAL</span></div>
+      <div class="pub-venue">ICCIT 2025 · 28th Intl. Conference on Computer and Information Technology</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.15s">
+      <div class="pub-title">Optimized Bandwidth Allocation in Cellular Networks Using Genetic Algorithms and a Historical Stability Index</div>
+      <div class="pub-venue">ICNGN 2025 · Intl. Conference on Intelligent Computing and Next Generation Networks</div>
+      <div class="pub-doi">DOI: 10.1109/ICNGN67480.2025.11413736</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.2s">
+      <div class="pub-title">Contrastive Representation Learning for Acute Lymphoblastic Leukemia: A SimCLR and EfficientNet-B0 Approach</div>
+      <div class="pub-venue">SPICSCON 2025 · Intl. Conference on Signal Processing, Information, Communication and Systems</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.25s">
+      <div class="pub-title">Deep Learning in Cybersecurity: A Hybrid CNN Framework for Multi-Source Malware Detection</div>
+      <div class="pub-venue">QPAIN 2025 · Intl. Conference on Quantum Photonics, Artificial Intelligence, and Networking</div>
+      <div class="pub-doi">DOI: 10.1109/QPAIN66474.2025.11171945</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.3s">
+      <div class="pub-title">Automated Diagnosis of Acute Lymphoblastic Leukemia Leveraging EfficientNet and Fastai</div>
+      <div class="pub-venue">ICCIT 2024 · 27th Intl. Conference on Computer and Information Technology (pp. 233–238)</div>
+      <div class="pub-doi">DOI: 10.1109/ICCIT64611.2024.11021950</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.35s">
+      <div class="pub-title">A Novel Hybrid Xception-DenseNet121 Model for Acute Lymphoblastic Leukemia Classification</div>
+      <div class="pub-venue">STI 2024 · 6th Intl. Conference on Sustainable Technologies for Industry 5.0</div>
+      <div class="pub-doi">DOI: 10.1109/STI64222.2024.10951150</div>
+    </div>
+    <div class="pub-card" style="animation-delay:0.4s">
+      <div class="pub-title">Leveraging Hybrid Deep Learning for Effective Multiclass Blood Cancer Detection</div>
+      <div class="pub-venue">ICRPSET 2024 · Intl. Conference on Recent Progresses in Science, Engineering and Technology</div>
+      <div class="pub-doi">DOI: 10.1109/ICRPSET64863.2024.10955897</div>
+    </div>
+  </div>
+
+  <div class="pub-content" id="tab-book">
+    <div class="pub-card" style="animation-delay:0.05s">
+      <div class="pub-title">Explainable Hybrid Convolutional Networks for Accurate Malaria Diagnosis in Blood Smear Images</div>
+      <div class="pub-venue">Springer CCIS · Data Science, AI and Applications (ICDSAIA 2025), vol. 2682</div>
+      <div class="pub-doi">DOI: 10.1007/978-3-032-11352-8_4</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Programming</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">NoSQL</span>
+        <span class="skill-pill">PHP</span>
+        <span class="skill-pill">C</span>
+        <span class="skill-pill">HTML/CSS</span>
+        <span class="skill-pill">Java</span>
       </div>
-      <p class="note">References available on request.</p>
-      <footer>Last updated August 2026 · Built and hosted on GitHub Pages</footer>
-    </section>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">ML Libraries</div>
+      <div class="skill-tags">
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">TensorFlow</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">fastai</span>
+        <span class="skill-pill">lightly.ai</span>
+        <span class="skill-pill">SciPy</span>
+        <span class="skill-pill">Statsmodels</span>
+        <span class="skill-pill">Hugging Face</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Data Science & AI</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Computer Vision</span>
+        <span class="skill-pill">Transfer Learning</span>
+        <span class="skill-pill">Explainable AI</span>
+        <span class="skill-pill">Image Processing</span>
+        <span class="skill-pill">Self-Supervised Learning</span>
+        <span class="skill-pill">Contrastive Learning (SimCLR)</span>
+        <span class="skill-pill">Vision Transformers</span>
+        <span class="skill-pill">Segmentation</span>
+        <span class="skill-pill">Classification</span>
+        <span class="skill-pill">Forecasting</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Tools & Frameworks</div>
+      <div class="skill-tags">
+        <span class="skill-pill">YOLOv8</span>
+        <span class="skill-pill">OpenCV</span>
+        <span class="skill-pill">Flask</span>
+        <span class="skill-pill">SimpleITK</span>
+        <span class="skill-pill">scikit-image</span>
+        <span class="skill-pill">Jupyter</span>
+        <span class="skill-pill">MATLAB</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">LaTeX</span>
+        <span class="skill-pill">Linux</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Seaborn</span>
+        <span class="skill-pill">Plotly</span>
+        <span class="skill-pill">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Professional</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Technical Writing</span>
+        <span class="skill-pill">Peer Review</span>
+        <span class="skill-pill">Data Ethics</span>
+        <span class="skill-pill">Project Mgmt</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Awards & Affiliations</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-row">
+    <div class="award-card reveal">
+      <div class="award-icon">🏆</div>
+      <div class="award-title">Best Intern 2025</div>
+      <div class="award-body">ICT Olympiad Bangladesh Season 2 — recognized for curriculum redesign and cross-team delivery.</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">📡</div>
+      <div class="award-title">IEEE Student Member</div>
+      <div class="award-body">Member of IEEE and IEEE Computer Society since Dec 2024. Secretary of the IEEE CS Bangladesh Chapter Secretariat &amp; SAC.</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">🌍</div>
+      <div class="award-title">ICSC Ambassador</div>
+      <div class="award-body">International Computer Science Competition Ambassador since Sep 2025, Heidelberg, Germany.</div>
+    </div>
+    <div class="award-card reveal">
+      <div class="award-icon">📝</div>
+      <div class="award-title">Peer Reviewer</div>
+      <div class="award-body">Reviews for IEEE Access and IJECE; NeurIPS 2026 and MICCAI 2026 ShapeMI Workshop; sub-reviewer for Pattern Recognition (Elsevier).</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Achievements & Moments</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="gallery-intro reveal">A visual record of conferences, research presentations, awards, and milestones along the journey.</p>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Card 1: tall -->
+    <div class="gallery-card tall reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">🏆</div>
+        <div class="ph-label">Best Intern Award<br>ICT Olympiad 2025</div>
+      </div>
+      <img src="photos/best-intern.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>Best Intern Award</strong>ICT Olympiad Bangladesh Season 2 · 2025</div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="gallery-card reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">📜</div>
+        <div class="ph-label">IEEE Access Publication<br>2026</div>
+      </div>
+      <img src="photos/ieee-access.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>IEEE Access</strong>Published Journal · IF 3.9 · 2026</div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="gallery-card reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">🎤</div>
+        <div class="ph-label">ICCIT 2025<br>Oral Presentation</div>
+      </div>
+      <img src="photos/iccit-2025.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>Oral Presentation</strong>ICCIT 2025 · Chest X-Ray Paper</div>
+      </div>
+    </div>
+    <!-- Card 4: wide -->
+    <div class="gallery-card wide reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">🔬</div>
+        <div class="ph-label">Research at MIRA Wing / AMIR Lab<br>MIRA Wing, IUB</div>
+      </div>
+      <img src="photos/lab.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>Research Lab</strong>MIRA Wing, CCDS · IUB · 2025–Present</div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="gallery-card reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">🌍</div>
+        <div class="ph-label">ICSC Ambassador<br>Heidelberg, Germany</div>
+      </div>
+      <img src="photos/icsc.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>ICSC Ambassador</strong>International CS Competition · Sep 2025</div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="gallery-card reveal" onclick="openLightbox(this)">
+      <div class="gallery-placeholder">
+        <div class="ph-icon">📡</div>
+        <div class="ph-label">IEEE CS BDC<br>Workshop Event</div>
+      </div>
+      <img src="photos/ieee-workshop.jpg" alt="" onerror="this.remove()">
+      <div class="gallery-overlay">
+        <div class="gallery-caption"><strong>IEEE CS BDC SAC</strong>PR Executive · Workshop · 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img src="" id="lightboxImg" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 
-<script>
-// Publication filter
-var buttons = document.querySelectorAll('.filters button');
-var pubs = document.querySelectorAll('.pub');
-buttons.forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var f = btn.dataset.filter;
-    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
-    pubs.forEach(function(p){ p.hidden = !(f === 'all' || p.dataset.type === f); });
-  });
-});
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="contact-tagline">Let's build the future of <em>intelligent healthcare</em> together.</p>
+    <p class="contact-sub">Open to graduate research positions, collaborations, and reviewing. References available on request.</p>
+    <div class="contact-links">
+      <a href="mailto:mohammadmehedi.munna@gmail.com" class="contact-link">
+        <span>✉</span> mohammadmehedi.munna@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/mohammad-mehedi-hasan-munna-719a03225/" class="contact-link" target="_blank">
+        <span>in</span> LinkedIn
+      </a>
+      <a href="https://orcid.org/0009-0000-0860-9337" class="contact-link" target="_blank">
+        <span>◎</span> ORCID
+      </a>
+      <a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ" class="contact-link" target="_blank">
+        <span>🎓</span> Google Scholar
+      </a>
+      <a href="cv.pdf" class="contact-link">
+        <span>📄</span> Curriculum Vitae
+      </a>
+    </div>
+  </div>
+</section>
 
-// Highlight the section currently in view
-var links = document.querySelectorAll('.nav a');
-var map = {};
-links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-if ('IntersectionObserver' in window) {
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting && map[e.target.id]) {
-        links.forEach(function(a){ a.removeAttribute('aria-current'); });
-        map[e.target.id].setAttribute('aria-current','true');
-      }
+<footer>
+  <span>© 2026 Mohammad Mehedi Hasan Munna</span>
+  <span>Dhaka, Bangladesh · Built with ❤️</span>
+</footer>
+
+<script>
+
+  // Lightbox
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    if (!img) return;
+    const caption = card.querySelector('.gallery-caption');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxCaption').innerHTML = caption ? caption.innerHTML : '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('a, button, .pub-card, .skill-group, .gallery-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.width = '56px'; ring.style.height = '56px'; ring.style.opacity = '0.5'; });
+    el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '1'; });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+
+  // Timeline stagger
+  document.querySelectorAll('.timeline-item').forEach((el, i) => {
+    el.style.transitionDelay = i * 0.1 + 's';
+  });
+
+  // Pub tabs
+  function showTab(name) {
+    document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pub-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`[onclick="showTab('${name}')"]`).classList.add('active');
+    const content = document.getElementById('tab-' + name);
+    content.classList.add('active');
+    content.querySelectorAll('.pub-card').forEach((card, i) => {
+      card.style.opacity = '0'; card.style.transform = 'translateY(10px)';
+      card.style.animation = 'none';
+      setTimeout(() => {
+        card.style.transition = `opacity 0.4s ${i*0.07}s ease, transform 0.4s ${i*0.07}s ease`;
+        card.style.opacity = '1'; card.style.transform = 'translateY(0)';
+      }, 10);
     });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  document.querySelectorAll('section[id]').forEach(function(s){ obs.observe(s); });
-}
+  }
+
+  // Smooth nav active state
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--teal)' : '';
+    });
+  });
 </script>
 </body>
 </html>
