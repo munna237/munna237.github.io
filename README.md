@@ -1,11 +1,12 @@
 # Mohammad Mehedi Hasan Munna: research portfolio
 
-A static, four-page portfolio site: **Home**, **Publications**, **Gallery** and **CV**. It is plain HTML and CSS with a few lines of JavaScript for the filters and the photo viewer. There is no framework.
+A static portfolio site with **about**, **publications**, **gallery**, **people** and **cv** pages. Its look is adapted from the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme (MIT), with a light/dark toggle. It is plain HTML and CSS with a few lines of JavaScript for the filters and the photo viewer. There is no framework.
 
 ```
 index.html          Home: bio, news, current work, selected publications
 publications.html   Journals, conferences, book chapter (filterable) and datasets
 gallery.html        Photos with captions and tags (filterable, click to enlarge)
+people.html         Mentors and collaborators (only generated once someone is confirmed)
 cv.html             Education, experience and certification timelines, awards, service, skills
 style.css           All styling
 assets/             Portrait, share image, and gallery/ for event photos
@@ -20,7 +21,7 @@ GitHub Pages serves this repository from the `main` branch. If the site doesn't 
 
 ## Updating the site
 
-All content lives in **`_source/content.py`**. Edit it, then regenerate the pages from the repository root:
+All content lives in **`_source/content.py`**. Styling is in `style.css`. Edit it, then regenerate the pages from the repository root:
 
 ```bash
 python3 _source/build.py
@@ -46,5 +47,6 @@ Tags become the filter buttons automatically.
 
 - **News:** add `("Mon YYYY", "What happened.")` to the top of `NEWS`.
 - **Current work:** `CURRENT_WORK` entries are `(title, one line, status)`.
-- **Collaborators & mentors:** this section appears on the home page once `COLLABORATORS` has entries. Ask each person before listing them.
+- **People:** add a profile to `PEOPLE`. Only entries with `"confirmed": True` are published, and the **people** page and menu item appear once at least one is confirmed. Put photos in `assets/people/`. To preview unconfirmed entries locally, run `python3 _source/build.py --preview-unconfirmed`, but don't commit that output.
+- **Venue badges:** the short label beside each paper comes from `VENUE_ABBR`, keyed by DOI.
 - **Publications:** add a tuple to `PUBS`. The filter counts update by themselves.

@@ -219,7 +219,33 @@ GALLERY = [
      "date": "2025", "tags": ["Workshop", "IEEE CS BDC"]},
 ]
 
-# Collaborators & mentors: (name, title and affiliation, how we worked together, optional URL).
-# Ask before listing someone. Example:
-#   ("Dr. Jane Doe", "Associate Professor, Some University", "Co-author on X and Y", "https://...")
-COLLABORATORS = []
+# Short venue labels shown as badges next to each publication (al-folio style), keyed by DOI.
+VENUE_ABBR = {
+    "10.1002/jmri.70618": "JMRI",
+    "10.1016/j.atech.2026.102550": "Smart Agri. Tech.",
+    "10.1371/journal.pone.0358557": "PLOS ONE",
+    "10.1109/ACCESS.2026.3730690": "IEEE Access",
+    "10.1109/ACCESS.2026.3686132": "IEEE Access",
+    "10.1109/ICHORA69329.2026.11537260": "ICHORA",
+    "10.1109/ICECTE69292.2026.11429340": "ICECTE",
+    "10.1109/ICNGN67480.2025.11413736": "ICNGN",
+    "10.1109/ICCIT68739.2025.11491187": "ICCIT",
+    "10.1109/SPICSCON69221.2025.11504078": "SPICSCON",
+    "10.1109/QPAIN66474.2025.11171945": "QPAIN",
+    "10.1109/ICCIT64611.2024.11021950": "ICCIT",
+    "10.1109/STI64222.2024.10951150": "STI",
+    "10.1109/ICRPSET64863.2024.10955897": "ICRPSET",
+    "10.1007/978-3-032-11352-8_4": "CCIS",
+}
+
+# People page: mentors and collaborators. Profiles alternate image right/left.
+#   name, lines (shown under the photo), bio, photo (file in assets/people/, or None
+#   for an initials badge), url (or None), confirmed.
+# Only entries with "confirmed": True are published. Ask each person first.
+PEOPLE = [
+    # Example:
+    # {"name": "Dr. Jane Doe",
+    #  "lines": ["Associate Professor", "Dept. of ...", "Some University"],
+    #  "bio": "Co-author on ...",
+    #  "photo": None, "url": None, "confirmed": True},
+]

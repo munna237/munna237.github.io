@@ -1,147 +1,290 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Publications | Mohammad Mehedi Hasan Munna</title>
+  <title>publications | Mohammad Mehedi Hasan Munna</title>
   <meta name="description" content="15 peer-reviewed publications and 3 datasets by Mohammad Mehedi Hasan Munna.">
-  <meta property="og:title" content="Publications | Mohammad Mehedi Hasan Munna">
+  <meta property="og:title" content="publications | Mohammad Mehedi Hasan Munna">
   <meta property="og:description" content="15 peer-reviewed publications and 3 datasets by Mohammad Mehedi Hasan Munna.">
   <meta property="og:type" content="profile">
   <meta property="og:image" content="assets/munna-og.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%233d3a8c' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23b83a64'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' font-family='Arial' font-weight='700' fill='%23b509ac'%3EM%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (err) {}
+      if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-publications">
+<body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-head">
-    <div class="wrap head-row">
-      <a class="brand" href="index.html">Mohammad Mehedi Hasan Munna</a>
-      <nav class="site-nav" aria-label="Main"><a href="index.html">Home</a><a href="publications.html" aria-current="page">Publications</a><a href="gallery.html">Gallery</a><a href="cv.html">CV</a></nav>
+  <header class="navbar">
+    <div class="container nav-row">
+      <a class="brand" href="index.html"><span class="strong">Mohammad</span> Mehedi Hasan Munna</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-menu" class="menu" aria-label="Main">
+        <ul><li><a href="index.html">about</a></li><li><a href="publications.html" aria-current="page">publications</a></li><li><a href="gallery.html">gallery</a></li><li><a href="cv.html">cv</a></li></ul>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode"><span class="only-light"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></span><span class="only-dark"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span></button>
+      </nav>
     </div>
   </header>
-  <main id="main" class="wrap">
+  <main id="main" class="container">
 
-    <header class="page-head">
-      <h1>Publications</h1>
-      <p class="note">Peer-reviewed work, newest first. Titles link to the DOI. My name is in bold.</p>
+    <div class="post">
+      
+    <header class="post-header">
+      <h1 class="post-title">publications</h1>
+      <p class="post-description">15 peer-reviewed publications and 3 datasets, in reverse chronological order.</p>
     </header>
-    <div class="narrow">
-      <div class="chips filter" role="group" aria-label="Filter publications by type" data-filter-group="pub-list"><button type="button" data-filter="all" aria-pressed="true">All <span class="count">15</span></button><button type="button" data-filter="journal" aria-pressed="false">Journals <span class="count">5</span></button><button type="button" data-filter="conference" aria-pressed="false">Conferences <span class="count">9</span></button><button type="button" data-filter="chapter" aria-pressed="false">Book chapter <span class="count">1</span></button></div>
-      <div id="pub-list">
-<div class="year-group" data-group><h2 class="year">2026</h2><ol class="pubs">
-          <li class="pub" data-match="journal" data-kind="journal">
-            <p class="pub-title"><a href="https://doi.org/10.1002/jmri.70618">Self-Supervised Learning for Accelerated MRI: A Critical Review of Paradigms, Trustworthiness, and Translational Challenges</a> <span class="status">In press</span></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Rafi, A. M. C., Sami, M. J. I., Sifat, K. M., Sultana, T., Islam, R. U., Tulona, R. F., &amp; Kabir, A. H.</p>
-            <p class="pub-venue"><span class="kind">Journal article</span> in <em>Journal of Magnetic Resonance Imaging</em></p>
+      <article class="publications">
+        <div class="filter" role="group" aria-label="Filter publications by type" data-filter-group="pub-list"><button type="button" data-filter="all" aria-pressed="true">all <span class="count">15</span></button><button type="button" data-filter="journal" aria-pressed="false">journals <span class="count">5</span></button><button type="button" data-filter="conference" aria-pressed="false">conferences <span class="count">9</span></button><button type="button" data-filter="chapter" aria-pressed="false">book chapter <span class="count">1</span></button></div>
+        <div id="pub-list">
+<div data-group><h2 class="bibliography">2026</h2><ol class="bibliography">
+          <li data-match="journal">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="Journal of Magnetic Resonance Imaging">JMRI</abbr></div>
+              <div class="bib-body">
+                <div class="title">Self-Supervised Learning for Accelerated MRI: A Critical Review of Paradigms, Trustworthiness, and Translational Challenges <span class="award">In press</span></div>
+                <div class="author"><em>Munna, M. M. H.</em>, Rafi, A. M. C., Sami, M. J. I., Sifat, K. M., Sultana, T., Islam, R. U., Tulona, R. F., &amp; Kabir, A. H.</div>
+                <div class="periodical"><em>Journal of Magnetic Resonance Imaging</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1002/jmri.70618">DOI</a><span class="kind">Journal article</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="journal" data-kind="journal">
-            <p class="pub-title"><a href="https://doi.org/10.1016/j.atech.2026.102550">AGRI-KD: A lightweight multi-task framework for rice disease diagnosis with localization and severity quantification</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Kabir, A. H., &amp; Tulona, R. F.</p>
-            <p class="pub-venue"><span class="kind">Journal article</span> in <em>Smart Agricultural Technology, 15, 102550</em></p>
+          <li data-match="journal">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="Smart Agricultural Technology, 15, 102550">Smart Agri. Tech.</abbr></div>
+              <div class="bib-body">
+                <div class="title">AGRI-KD: A lightweight multi-task framework for rice disease diagnosis with localization and severity quantification</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Kabir, A. H., &amp; Tulona, R. F.</div>
+                <div class="periodical"><em>Smart Agricultural Technology, 15, 102550</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1016/j.atech.2026.102550">DOI</a><span class="kind">Journal article</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="journal" data-kind="journal">
-            <p class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0358557">Artificial intelligence for women’s reproductive health: A scoping review of global diagnostic trends, methodological gaps, and a translational research agenda for low-resource settings</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Islam, T., Faruk, O., Tulona, R. F., Sultana, A., et al.</p>
-            <p class="pub-venue"><span class="kind">Journal article</span> in <em>PLOS ONE, 21(9), e0358557</em></p>
+          <li data-match="journal">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="PLOS ONE, 21(9), e0358557">PLOS ONE</abbr></div>
+              <div class="bib-body">
+                <div class="title">Artificial intelligence for women’s reproductive health: A scoping review of global diagnostic trends, methodological gaps, and a translational research agenda for low-resource settings</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Islam, T., Faruk, O., Tulona, R. F., Sultana, A., et al.</div>
+                <div class="periodical"><em>PLOS ONE, 21(9), e0358557</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1371/journal.pone.0358557">DOI</a><span class="kind">Journal article</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="journal" data-kind="journal">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ACCESS.2026.3730690">BRIGHT: Broker-Less Residential IoT Gateway Over HTTPS for Transmission</a></p>
-            <p class="pub-authors">Jawad, M. A., <strong class="me">Munna, M. M. H.</strong>, Kabir, A. H., Mulk, M. M. U., &amp; Islam, R. U.</p>
-            <p class="pub-venue"><span class="kind">Journal article</span> in <em>IEEE Access, 14, 138026–138041</em></p>
+          <li data-match="journal">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="IEEE Access, 14, 138026–138041">IEEE Access</abbr></div>
+              <div class="bib-body">
+                <div class="title">BRIGHT: Broker-Less Residential IoT Gateway Over HTTPS for Transmission</div>
+                <div class="author">Jawad, M. A., <em>Munna, M. M. H.</em>, Kabir, A. H., Mulk, M. M. U., &amp; Islam, R. U.</div>
+                <div class="periodical"><em>IEEE Access, 14, 138026–138041</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ACCESS.2026.3730690">DOI</a><span class="kind">Journal article</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="journal" data-kind="journal">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ACCESS.2026.3686132">A Runtime Safety Copilot for AI-Native O-RAN: Predictive Verification and Fail-Safe Enforcement in Near-RT RIC Control Loops</a></p>
-            <p class="pub-authors">Jawad, M. A., <strong class="me">Munna, M. M. H.</strong>, Kabir, A. H., Antu, N. H., &amp; Tulona, R. F.</p>
-            <p class="pub-venue"><span class="kind">Journal article</span> in <em>IEEE Access, 14, 63106–63120</em></p>
+          <li data-match="journal">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="IEEE Access, 14, 63106–63120">IEEE Access</abbr></div>
+              <div class="bib-body">
+                <div class="title">A Runtime Safety Copilot for AI-Native O-RAN: Predictive Verification and Fail-Safe Enforcement in Near-RT RIC Control Loops</div>
+                <div class="author">Jawad, M. A., <em>Munna, M. M. H.</em>, Kabir, A. H., Antu, N. H., &amp; Tulona, R. F.</div>
+                <div class="periodical"><em>IEEE Access, 14, 63106–63120</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ACCESS.2026.3686132">DOI</a><span class="kind">Journal article</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICHORA69329.2026.11537260">A Comparative Survey of IoT Platforms: Architecture, Security, and Emerging Trends Toward Distributed Intelligence</a></p>
-            <p class="pub-authors">Jawad, M. A., <strong class="me">Munna, M. M. H.</strong>, Tulona, R. F., Antu, N. H., &amp; Kabir, A. H.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2026 8th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA), Ankara, Türkiye, pp. 1–8</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2026 8th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA), Ankara, Türkiye, pp. 1–8">ICHORA</abbr></div>
+              <div class="bib-body">
+                <div class="title">A Comparative Survey of IoT Platforms: Architecture, Security, and Emerging Trends Toward Distributed Intelligence</div>
+                <div class="author">Jawad, M. A., <em>Munna, M. M. H.</em>, Tulona, R. F., Antu, N. H., &amp; Kabir, A. H.</div>
+                <div class="periodical"><em>2026 8th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA), Ankara, Türkiye, pp. 1–8</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICHORA69329.2026.11537260">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICECTE69292.2026.11429340">AI-Assisted PCOS Screening from Ultrasound Using Vision Transformers and Explainable Attention</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, et al.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2026 5th International Conference on Electrical, Computer &amp; Telecommunication Engineering (ICECTE), Rajshahi, Bangladesh, pp. 1–6</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2026 5th International Conference on Electrical, Computer &amp; Telecommunication Engineering (ICECTE), Rajshahi, Bangladesh, pp. 1–6">ICECTE</abbr></div>
+              <div class="bib-body">
+                <div class="title">AI-Assisted PCOS Screening from Ultrasound Using Vision Transformers and Explainable Attention</div>
+                <div class="author"><em>Munna, M. M. H.</em>, et al.</div>
+                <div class="periodical"><em>2026 5th International Conference on Electrical, Computer &amp; Telecommunication Engineering (ICECTE), Rajshahi, Bangladesh, pp. 1–6</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICECTE69292.2026.11429340">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-        </ol></div><div class="year-group" data-group><h2 class="year">2025</h2><ol class="pubs">
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICNGN67480.2025.11413736">Optimized Bandwidth Allocation in Cellular Networks Using Genetic Algorithms and a Historical Stability Index</a></p>
-            <p class="pub-authors">Jawad, M. A., <strong class="me">Munna, M. M. H.</strong>, Antu, N. H., Tulona, R. F., Kabir, A. H., &amp; Islam, A.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2025 International Conference on Intelligent Computing and Next Generation Networks (ICNGN), Singapore, pp. 1–5</em></p>
+        </ol></div><div data-group><h2 class="bibliography">2025</h2><ol class="bibliography">
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2025 International Conference on Intelligent Computing and Next Generation Networks (ICNGN), Singapore, pp. 1–5">ICNGN</abbr></div>
+              <div class="bib-body">
+                <div class="title">Optimized Bandwidth Allocation in Cellular Networks Using Genetic Algorithms and a Historical Stability Index</div>
+                <div class="author">Jawad, M. A., <em>Munna, M. M. H.</em>, Antu, N. H., Tulona, R. F., Kabir, A. H., &amp; Islam, A.</div>
+                <div class="periodical"><em>2025 International Conference on Intelligent Computing and Next Generation Networks (ICNGN), Singapore, pp. 1–5</em>, 2025</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICNGN67480.2025.11413736">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICCIT68739.2025.11491187">Deep Learning for Reliable Healthcare: Insights from Chest X-Ray Prediction</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Aman, N., Kabir, S. S., Bari, S., Islam, T., Dhrubo, V., Kabir, A. H., &amp; Tulona, R. F.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2025 28th International Conference on Computer and Information Technology (ICCIT), pp. 4801–4806</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2025 28th International Conference on Computer and Information Technology (ICCIT), pp. 4801–4806">ICCIT</abbr></div>
+              <div class="bib-body">
+                <div class="title">Deep Learning for Reliable Healthcare: Insights from Chest X-Ray Prediction</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Aman, N., Kabir, S. S., Bari, S., Islam, T., Dhrubo, V., Kabir, A. H., &amp; Tulona, R. F.</div>
+                <div class="periodical"><em>2025 28th International Conference on Computer and Information Technology (ICCIT), pp. 4801–4806</em>, 2025</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICCIT68739.2025.11491187">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/SPICSCON69221.2025.11504078">Contrastive Representation Learning for Acute Lymphoblastic Leukemia: A SimCLR and EfficientNet-B0 Approach</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Aman, N., Bari, S., Mia, M. S., Kabir, A. H., Tulona, R. F., &amp; Enan, I. I.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2025 IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON), pp. 380–385</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2025 IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON), pp. 380–385">SPICSCON</abbr></div>
+              <div class="bib-body">
+                <div class="title">Contrastive Representation Learning for Acute Lymphoblastic Leukemia: A SimCLR and EfficientNet-B0 Approach</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Aman, N., Bari, S., Mia, M. S., Kabir, A. H., Tulona, R. F., &amp; Enan, I. I.</div>
+                <div class="periodical"><em>2025 IEEE International Conference on Signal Processing, Information, Communication and Systems (SPICSCON), pp. 380–385</em>, 2025</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/SPICSCON69221.2025.11504078">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/QPAIN66474.2025.11171945">Deep Learning in Cybersecurity: A Hybrid CNN Framework for Multi-Source Malware Detection</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Aman, N., Saha, S., Islam, T., Nusrat, S., &amp; Das, S. K.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2025 International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN), pp. 1–6</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2025 International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN), pp. 1–6">QPAIN</abbr></div>
+              <div class="bib-body">
+                <div class="title">Deep Learning in Cybersecurity: A Hybrid CNN Framework for Multi-Source Malware Detection</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Aman, N., Saha, S., Islam, T., Nusrat, S., &amp; Das, S. K.</div>
+                <div class="periodical"><em>2025 International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN), pp. 1–6</em>, 2025</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/QPAIN66474.2025.11171945">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="chapter" data-kind="chapter">
-            <p class="pub-title"><a href="https://doi.org/10.1007/978-3-032-11352-8_4">Explainable Hybrid Convolutional Networks for Accurate Malaria Diagnosis in Blood Smear Images</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, et al.</p>
-            <p class="pub-venue"><span class="kind">Book chapter</span> in <em>Data Science, AI and Applications (ICDSAIA 2025), Communications in Computer and Information Science, vol. 2682, Springer, Cham</em></p>
+          <li data-match="chapter">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="Data Science, AI and Applications (ICDSAIA 2025), Communications in Computer and Information Science, vol. 2682, Springer, Cham">CCIS</abbr></div>
+              <div class="bib-body">
+                <div class="title">Explainable Hybrid Convolutional Networks for Accurate Malaria Diagnosis in Blood Smear Images</div>
+                <div class="author"><em>Munna, M. M. H.</em>, et al.</div>
+                <div class="periodical"><em>Data Science, AI and Applications (ICDSAIA 2025), Communications in Computer and Information Science, vol. 2682, Springer, Cham</em>, 2025</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1007/978-3-032-11352-8_4">DOI</a><span class="kind">Book chapter</span></div>
+              </div>
+            </div>
           </li>
-        </ol></div><div class="year-group" data-group><h2 class="year">2024</h2><ol class="pubs">
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICCIT64611.2024.11021950">Automated Diagnosis of Acute Lymphoblastic Leukemia Leveraging EfficientNet and Fastai</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Habib, I., Turzo, N. A., Jahan, N., &amp; Nusrat, S.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2024 27th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh, pp. 233–238</em></p>
+        </ol></div><div data-group><h2 class="bibliography">2024</h2><ol class="bibliography">
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2024 27th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh, pp. 233–238">ICCIT</abbr></div>
+              <div class="bib-body">
+                <div class="title">Automated Diagnosis of Acute Lymphoblastic Leukemia Leveraging EfficientNet and Fastai</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Habib, I., Turzo, N. A., Jahan, N., &amp; Nusrat, S.</div>
+                <div class="periodical"><em>2024 27th International Conference on Computer and Information Technology (ICCIT), Cox’s Bazar, Bangladesh, pp. 233–238</em>, 2024</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICCIT64611.2024.11021950">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/STI64222.2024.10951150">A Novel Hybrid Xception-DenseNet121 Model for Acute Lymphoblastic Leukemia Classification</a></p>
-            <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Habib, I., &amp; Aman, N.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2024 6th International Conference on Sustainable Technologies for Industry 5.0 (STI), Narayanganj, Bangladesh, pp. 1–6</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2024 6th International Conference on Sustainable Technologies for Industry 5.0 (STI), Narayanganj, Bangladesh, pp. 1–6">STI</abbr></div>
+              <div class="bib-body">
+                <div class="title">A Novel Hybrid Xception-DenseNet121 Model for Acute Lymphoblastic Leukemia Classification</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Habib, I., &amp; Aman, N.</div>
+                <div class="periodical"><em>2024 6th International Conference on Sustainable Technologies for Industry 5.0 (STI), Narayanganj, Bangladesh, pp. 1–6</em>, 2024</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/STI64222.2024.10951150">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
-          <li class="pub" data-match="conference" data-kind="conference">
-            <p class="pub-title"><a href="https://doi.org/10.1109/ICRPSET64863.2024.10955897">Leveraging Hybrid Deep Learning for Effective Multiclass Blood Cancer Detection</a></p>
-            <p class="pub-authors">Habib, I., <strong class="me">Munna, M. M. H.</strong>, &amp; Aman, N.</p>
-            <p class="pub-venue"><span class="kind">Conference paper</span> in <em>2024 International Conference on Recent Progresses in Science, Engineering and Technology (ICRPSET), pp. 1–5</em></p>
+          <li data-match="conference">
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge" title="2024 International Conference on Recent Progresses in Science, Engineering and Technology (ICRPSET), pp. 1–5">ICRPSET</abbr></div>
+              <div class="bib-body">
+                <div class="title">Leveraging Hybrid Deep Learning for Effective Multiclass Blood Cancer Detection</div>
+                <div class="author">Habib, I., <em>Munna, M. M. H.</em>, &amp; Aman, N.</div>
+                <div class="periodical"><em>2024 International Conference on Recent Progresses in Science, Engineering and Technology (ICRPSET), pp. 1–5</em>, 2024</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.1109/ICRPSET64863.2024.10955897">DOI</a><span class="kind">Conference paper</span></div>
+              </div>
+            </div>
           </li>
         </ol></div>
-      </div>
-      <section id="datasets">
-        <h2>Datasets</h2>
-        <p class="note">Field-collected, annotated image datasets released openly on Mendeley Data.</p>
-        <ul class="datasets">
-        <li class="dataset">
-          <h3><a href="https://doi.org/10.17632/JCVXM4GH7D.1">TeaLeafDiseaseBD</a></h3>
-          <p>Annotated smartphone images and lesion-level labels of tea leaf diseases from Bangladesh.</p>
-          <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Islam, T., Bari, S., Antu, N. H., Kabir, A. H., Tulona, R. F., Islam, A., &amp; Amin, M. A. (2026). Mendeley Data.</p>
-        </li>
-        <li class="dataset">
-          <h3><a href="https://data.mendeley.com/datasets/r9whm6nz8n/1">FloraBD</a></h3>
-          <p>A field-collected multi-category smartphone image dataset of ornamental, medicinal, and wild flowering plants from Bangladesh for computer vision and biodiversity research.</p>
-          <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Islam, T., Kalam, M. K., Roja, T. K., Ahammed, K. O., Towhid, M. T. B., Kabir, S. S., Safy, I. H., Nusrat, S., Bari, S., et al. (2026). Mendeley Data.</p>
-        </li>
-        <li class="dataset">
-          <h3><a href="https://data.mendeley.com/datasets/86s4jzj2m4/2">RiceLeafDiseaseBD</a></h3>
-          <p>A field-based annotated smartphone image dataset of healthy and diseased rice leaves from Bangladesh.</p>
-          <p class="pub-authors"><strong class="me">Munna, M. M. H.</strong>, Islam, T., Saha, S., Safy, I. H., Bari, S., Akter, J., Rahman, M. M., Akter, R., Antu, N. H., Kabir, A. H., et al. (2026). Mendeley Data.</p>
-        </li>
-        </ul>
-      </section>
+        </div>
+        <h2 class="bibliography">datasets</h2>
+        <ol class="bibliography">
+          <li>
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge badge-data" title="Mendeley Data">Dataset</abbr></div>
+              <div class="bib-body">
+                <div class="title">TeaLeafDiseaseBD</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Islam, T., Bari, S., Antu, N. H., Kabir, A. H., Tulona, R. F., Islam, A., &amp; Amin, M. A.</div>
+                <div class="periodical">Annotated smartphone images and lesion-level labels of tea leaf diseases from Bangladesh. <em>Mendeley Data</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://doi.org/10.17632/JCVXM4GH7D.1">DATA</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge badge-data" title="Mendeley Data">Dataset</abbr></div>
+              <div class="bib-body">
+                <div class="title">FloraBD</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Islam, T., Kalam, M. K., Roja, T. K., Ahammed, K. O., Towhid, M. T. B., Kabir, S. S., Safy, I. H., Nusrat, S., Bari, S., et al.</div>
+                <div class="periodical">A field-collected multi-category smartphone image dataset of ornamental, medicinal, and wild flowering plants from Bangladesh for computer vision and biodiversity research. <em>Mendeley Data</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://data.mendeley.com/datasets/r9whm6nz8n/1">DATA</a></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="bib-row">
+              <div class="abbr"><abbr class="badge badge-data" title="Mendeley Data">Dataset</abbr></div>
+              <div class="bib-body">
+                <div class="title">RiceLeafDiseaseBD</div>
+                <div class="author"><em>Munna, M. M. H.</em>, Islam, T., Saha, S., Safy, I. H., Bari, S., Akter, J., Rahman, M. M., Akter, R., Antu, N. H., Kabir, A. H., et al.</div>
+                <div class="periodical">A field-based annotated smartphone image dataset of healthy and diseased rice leaves from Bangladesh. <em>Mendeley Data</em>, 2026</div>
+                <div class="links"><a class="btn" href="https://data.mendeley.com/datasets/86s4jzj2m4/2">DATA</a></div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </article>
     </div>
   </main>
   <footer class="site-foot">
-    <div class="wrap foot-row">
-      <p><a href="mailto:mohammadmehedi.munna@gmail.com">mohammadmehedi.munna@gmail.com</a></p>
-      <p class="foot-links"><a href="https://github.com/munna237">GitHub</a><a href="https://www.linkedin.com/in/munna237">LinkedIn</a><a href="https://orcid.org/0009-0000-0860-9337">ORCID</a><a href="https://scholar.google.com/citations?user=1kIGglAAAAAJ">Google Scholar</a><a href="https://www.credly.com/users/mohammad-mehedi-hasan-munna.922d92f8">Credly badges</a></p>
-      <p class="muted">Last updated November 2026</p>
+    <div class="container">
+      &copy; Copyright 2026 Mohammad Mehedi Hasan Munna. Design adapted from the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Last updated: November 2026.
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      function sync() { btn.setAttribute('aria-label', root.getAttribute('data-theme') === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'); }
+      sync();
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (err) {}
+        sync();
+      });
+      var menuBtn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('site-menu');
+      root.classList.add('js');
+      menuBtn.addEventListener('click', function () {
+        var open = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('open', !open);
+      });
+    })();
+  </script>
 
   <script>
     document.querySelectorAll('[data-filter-group]').forEach(function (bar) {
