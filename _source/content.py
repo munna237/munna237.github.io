@@ -243,9 +243,12 @@ VENUE_ABBR = {
 #   for an initials badge), url (or None), confirmed.
 # Only entries with "confirmed": True are published. Ask each person first.
 PEOPLE = [
-    # Example:
-    # {"name": "Dr. Jane Doe",
-    #  "lines": ["Associate Professor", "Dept. of ...", "Some University"],
-    #  "bio": "Co-author on ...",
-    #  "photo": None, "url": None, "confirmed": True},
+    {"name": "Dr. Raihan Ul Islam",
+     "lines": ["Associate Professor", "Dept. of Computer Science & Engineering", "East West University, Bangladesh"],
+     "bio": "Co-author on the review of self-supervised learning for accelerated MRI (Journal of Magnetic Resonance Imaging, 2026) and on BRIGHT, a broker-less residential IoT gateway (IEEE Access, 2026).",
+     "photo": None, "url": None, "confirmed": True},
+    {"name": "Nakib Aman",
+     "lines": ["Assistant Professor", "Dept. of Computer Science & Engineering", "Pabna University of Science and Technology"],
+     "bio": "Co-author on five conference papers from 2024 and 2025, covering acute lymphoblastic leukemia and blood cancer classification, chest X-ray prediction, and malware detection.",
+     "photo": None, "url": None, "confirmed": True},
 ]
